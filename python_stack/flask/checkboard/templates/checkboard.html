@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckBoard</title>
+    <style>
+        .firstBox{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        .secondBox{
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+        }
+        div{
+            display: flex;
+        }
+
+    </style>
+</head>
+<body>
+<div>
+{%for i in range (0,firstRetp)%}
+<table>
+    {%for i in range (0,secondRep)%}
+    <tr>    
+        <td style="background-color: {{first_color}};" class="firstBox"></td>
+        <td style="background-color: {{second_color}};" class="secondBox"></td>
+    </tr>
+    <tr>  
+        <td style="background-color: {{second_color}};" class="secondBox"></td>  
+        <td style="background-color: {{first_color}};" class="firstBox"></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+</div>
+</body>
+</html>
