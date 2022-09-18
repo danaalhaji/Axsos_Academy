@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="profilePage.css">
+    <title>Flex Navator</title>
+</head>
+<body>
+    <nav>
+        <h1 class="nav-title">Profile</h1>
+        <ul class="nav-links">
+            <li><a href="#" >Home</a></li>
+            <li><a href="#" class="active"><strong>Profile</strong></a></li>
+            <li><a href="#">Find Connections</a></li>
+            <li><button class="btn">Sign Out</button></li>
+        </ul>
+    </nav>
+    <div id="container">
+    <div class="container1">
+    <div class="c">
+        <div class="head"></div>
+        <img src="user-circle.png" class="personalPic" alt="user">
+        <div class="info">
+            <h1 id="namePerson">Jane Doe</h1><br>
+            <P><img src="map-marker.png" alt="map">     Seattle</P><br>
+            <p>Developer | Enginner | Problem solver<br> Master of shadws and the internet!
+            </p>
+            <div><br>
+            <img src="gear.png" alt="gear">
+            <a href="#" name="editProfile" onclick="changeName()">edit profile</a>
+        </div>
+        </div>
+    </div>
+    <div id="Education">
+        <h2>Education</h2>
+        <p style="font-size:20px"><strong>Dojo - Full Stack Bootcamp </strong></p>
+        <br>
+        <p style="color:lightgrey ;">Dec 2019- Mar202</p>
+        <br>
+        <p><strong> Black Belt in Python, Mern and C#...</p></strong>
+</div>
+    </div> 
+    <div id="section">
+        <div class="Connections">
+            <h2><spna id="spans">2</spna> connections Requests</h2>
+            <div id="request1" style="font-size:30px">
+                <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                <strong>Todd E</strong> 
+                <sub> <img src="accept-circle.png" class="coneectionsPhotos" id="accept1" name="tick" onclick="removeRequest()" style="margin-left: 90px;" alt="accept"></sub>
+                <sub> <img src="close-circle.png" class="coneectionsPhotos" onclick="removeRequest()"   alt="close"></sub>
+            </div>
+            <div id="request2" style="font-size:30px">
+                <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                <strong>Phill K</strong> 
+                <sub> <img src="accept-circle.png" class="coneectionsPhotos" id="accept2" onclick="removeRequest2()" style="margin-left: 100px;" alt="accept2"></sub>
+                <sub> <img src="close-circle.png"  class="coneectionsPhotos"  onclick="removeRequest2()" alt="close"></sub>
+        </div>
+        <div id="Connections2">
+            <div class="Connections2">
+                <h2><span id="spans2">500+</span> Your Connections</h2>
+                <p style="font-size:30px">
+                    <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                    <strong>Adrian D</strong> 
+                </p>
+                <p style="font-size:30px">
+                    <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                    <strong>Ann J</strong> 
+                </p>
+                <p style="font-size:30px">
+                    <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                    <strong>Alyane T</strong> 
+                </p>
+                <p style="font-size:30px">
+                    <sub><img src="user-circle.png" class="coneectionsPhotos" alt="userCircle"></sub>
+                    <strong>Arry Y</strong> 
+                </p>
+                <p id="viewMore">
+                    <a href="#"> View More</a>
+                </p>
+        </div>
+        </div>
+        </div>
+    </div>
+    <script src="MakingConnection.js"></script>
+</body>
+</html>

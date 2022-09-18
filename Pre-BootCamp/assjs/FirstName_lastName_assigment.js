@@ -1,0 +1,6 @@
+-->// i was born in 1980
+-->// i was born in 1980
+-->// suming number
+-->// num1 is 10
+-->// num2 is 20
+-->// sum is 30

@@ -1,0 +1,134 @@
+*{
+    margin: 0 auto;
+    padding: 0 auto;
+    /* font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; */
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+}
+header{
+    width: 100%;
+}
+#searchNav{
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
+    justify-content: space-around;
+}
+header > p {
+    width: 100%;
+    background-color: #c27ba0;
+    color: white;
+    font-size: 1.3rem;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border: 3px solid black;
+}
+#cartAndNumber{
+    display: flex;
+    margin-left: 5px;
+}
+#cartDark{
+    width: 42px;
+    height: 42px;
+    transform: rotateY(180deg);
+    margin-top: 10px;
+}
+#purchaseCount{
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 15px;
+}
+#searchBox{
+    width: 60%;
+    border: 3px solid black;
+    font-size: 18px;
+    margin: 20px;
+}
+h2{
+    margin-top: 10px;
+    margin-right: 2px;
+    font-size: 37px;
+}
+.nav-links{
+    width: 45%;
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+    padding: 20px;
+    font-size: 25px;
+}
+a{
+    color: black;
+    text-decoration: none;
+}
+nav{
+    width: 100%;
+    background-color: #dddddd;
+}
+#container{
+    display: flex;
+    flex-direction: column;
+
+}
+#products{
+    font-weight: bold;
+    border-bottom: 5px solid #c27ba0;
+    border-radius: 4px;
+}
+h1{
+    width: 74%;
+    background-color: #c27ba0;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 53px;
+    margin-top: 10px;
+}
+.optionsAndSelections{
+    width: 77%;
+    margin-top: 20px;
+    display: flex;
+    font-size: 17px;
+}
+#optionsDesc{
+    margin-left: 5px;
+}
+#optionsDetails{
+    margin-right: 5px;
+}
+#options{
+    border: 2px solid black;
+    font-size: 17px;
+}
+.buy{
+    width: 80%;
+    display: flex;
+    margin-top: 50px;
+    justify-content:space-evenly;
+    text-align: center;
+}
+.productName{
+    font-size: 35px;
+    margin-top: 17px;
+}
+.buyimg{
+    width:80%;
+    margin: 0 auto;
+}
+.buttonBuy{
+    width:90px ;
+    background-color:#c27ba0;
+    outline:none;
+    border-radius: 12px;
+    border: none;
+    color: white;
+    padding: 7px;
+    font-size: 25px;
+}
+.buyButtonsAndImages{
+    margin: 0 auto;
+    padding: 0 auto;
+    width: 30%;
+}

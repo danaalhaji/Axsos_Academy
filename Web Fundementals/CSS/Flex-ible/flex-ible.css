@@ -1,0 +1,39 @@
+/* * {
+    padding: 0;
+    margin: 0;
+} */
+.container{
+    width:0 auto ;
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.row{
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.col{
+    color: darksalmon;
+    height: 50px;
+    background-color: rgb(132, 31, 88);
+    flex:1;
+    margin: 20px;
+}
+.col2{
+    background-color: rgb(132, 31, 88);
+    color: darksalmon;
+    height: 50px;
+    flex:2;
+    margin: 20px;
+}
+.col3{
+    background-color: rgb(132, 31, 88);
+    color: darksalmon;
+    height: 50px;
+    flex:3;
+    margin: 20px;
+}

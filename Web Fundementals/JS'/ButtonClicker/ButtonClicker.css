@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+} 
+body{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    flex-wrap: wrap;
+}
+header{
+    display: flex;
+    width:50%;
+    height:60px;
+    background-color: #cccccc;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 20px;
+}
+
+#searchBt{
+    margin-left: 50px;
+    margin-top: 2px;
+    text-align: center;
+    height: 30px;
+    border: 1px solid black;
+}
+#loginBT{
+    width: 50px;
+    height: 30px;
+    background-color: #2b78e4;
+    border-color: black;
+    box-shadow: 2px 2px 3px black;
+    color: white;
+}
+.ninjaa{
+    width:30%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    border: 3px solid black;
+    margin-top: 10px;
+    margin-left:330px ;
+    align-self: baseline;
+    font-size: 20px;
+    
+}
+
+.likes {
+    width: 80px;
+    height: 30px;
+    background-color: #ffd966;
+    border-color: black;
+    box-shadow: 2px 2px 3px black;
+    color:black;
+}
+.spanSpecifications{
+    text-decoration: underline;
+    color: #3471a6;
+}
+.para-likesbtn{
+    display: flex;
+    flex-direction: column ;
+    padding: 10PX;
+    margin-right: 50px;
+}
+aside {
+    width: 10%;
+    height: 130PX;
+    float:right;
+    border: 3px solid black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-right: 330px;
+    margin-top: 12px;
+    font-size: 20PX;
+    padding-left: 20px;
+}
+#Add-DefinitionBT{
+    background-color:#93c47d;
+    border: 2px solid black;
+    box-shadow: 1px 2px 2px black;
+    font-size: 15px;
+    width: 90% ;
+    margin-right: 10%;
+}
+.Ninjacontainer{
+    width: 89%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    padding: 20px;
+}
+#nin{
+    margin-left: 420px;
+    width: 27%;
+}

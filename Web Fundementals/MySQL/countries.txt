@@ -1,0 +1,53 @@
+//////////////////////********* ALL contries speaks slovene*********//////////////////////
+
+select * from languages
+join country on country.Code = countrylanguage.CountryCode
+where countrylanguage.Language = "Slovene"
+order by countrylanguage.Percentage;
+
+//////////////////////********* COUNT of CITIES*********//////////////////////
+
+SELECT countries.name as name, COUNT(cities.name) as cities
+FROM countries
+LEFT JOIN cities ON countries.id = cities.country_id
+GROUP BY countries.name
+ORDER BY cities DESC;
+
+//////////////////////********* POPULATION of MEXICO*********//////////////////////
+
+select cities.name, cities.population, cities.country_id
+from cities
+join cities on countries.code = cities.country_id
+where cities.population > 50000 and countries.name = "Mexico"
+order by cities.population desc;
+
+
+//////////////////////********* PERECENTAGE OF LANGUAGES*********//////////////////////
+
+select countries.name as name, languages.language as language , languages.percentage as percentage
+from countries
+join languages on countries.id = languages.country_id
+where languages.percentage > 89
+order by langauges.percentage desc;
+
+//////////////////////*********SURFACE AREA & POPULATION*********//////////////////////
+
+SELECT name, surface_area, population
+from countries
+WHERE population >100000
+AND surface_area < 501;
+
+//////////////////////********* Selections *********//////////////////////
+
+select countries.government_form, countries.capital, countries.life_expectancy
+from countries
+where government_form = "Constitutional Monarchy" 
+and capital > 200
+and life_expectancy > 75;
+
+//////////////////////**************************//////////////////////
+
+SELECT countries.region, COUNT(countries.name) as countries
+FROM countries
+GROUP BY countries.region
+ORDER BY countries DESC

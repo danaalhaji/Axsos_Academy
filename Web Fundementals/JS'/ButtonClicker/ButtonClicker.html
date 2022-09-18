@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="ButtonClicker.css">
+    <title>ButtonClicker</title>
+</head>
+<body>
+    <header>
+    <h1>Dojonary</h1>
+    <input id="searchBt" type="search" name="gsearch" placeholder="Serach">
+    <button id="loginBT" type="button" name="in" onclick="likes(this)">login</button>
+    </header>
+    <div class="Ninjacontainer">
+    <div class="ninjaa" >
+        <div class="para-likesbtn">
+            <h2>ninja</h2>
+            <p>
+                noun
+            </p>
+            <p>
+                Plural:<em>ninjas </em>
+            </p>
+            <br>
+            <button class="likes" type="button" onclick="LikesAlert(this)">13 Likes</button>
+        </div>
+        <p>
+            A  <span class="spanSpecifications">programmer</span> who  breaks down a problem widt
+            <span class="spanSpecifications"> zen</span>-like focus.
+        </p>
+        </div>
+        <aside>
+            <p>Dojonary is defined by<strong>YOU</strong></p>
+            <button id="Add-DefinitionBT" type="button" onclick="removeele(this)">Add Defeinition</button>
+        </aside>
+    </div>
+    <div class="ninjaa" id="nin">
+        <div class="para-likesbtn">
+            <h2>ninja</h2>
+            <p>
+                noun
+            </p>
+            <p>
+                Plural:<em>ninjas </em>
+            </p>
+            <br>
+            <button class="likes" onclick="LikesAlert(this)" type="button">37 Likes</button>
+        </div>
+        <p>
+            A parctitioner skilled in the <span class="spanSpecifications">Japanese</span> art of<span class="spanSpecifications"> Ninjutsu</span>
+        </p>
+    </div>
+
+    
+    <script src="ButtonClicker.js"></script>
+</body>
+</html>

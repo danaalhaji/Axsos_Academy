@@ -1,0 +1,74 @@
+/////////////////******ADD Values******///////////////////////////////////////
+
+insert into dojos (name)
+values ('dana');
+insert into dojos (name)
+values ('n2');
+insert into dojos (name)
+values ('n2333');
+
+/////////////////******DELETE FIRST 3 VALUES******///////////////////////////////////////
+
+DELETE FROM dojos
+WHERE id = 1;
+DELETE FROM dojos
+WHERE id = 2;
+DELETE FROM dojos
+WHERE id = 3;
+
+/////////////////******INSERT 3 VALUES******/////////////////////////////////////////////
+
+insert into dojos (name)
+values ('name');
+insert into dojos (name)
+values ('dana');
+insert into dojos (name)
+values ('ahmad');
+
+/////////////////******INSERT 3 VALUES in Ninjas that relate to the first dojo******/////////////////////////////////////////////
+
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('dana','alhaji',15,4);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('laila','alhaji',18,4);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('ramez','alhaji',24,4);
+
+
+/////////////////******INSERT 3 VALUES in Ninjas that relate to the SECOND dojo******/////////////////////////////////////////////
+
+value ('marwan', 'alhaji', 19, 5);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('marah', 'shattwai', 25, 5);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('sameera', 'saed', 59, 5);
+
+/////////////////******INSERT 3 VALUES in Ninjas that relate to the THIRD dojo******/////////////////////////////////////////////
+
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('SOZAN','alamad',56, 6);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('memo', 'anything',16, 6);
+insert into ninjas (first_name,last_name, age , dojo_id)
+value ('merooo', 'unknown', 23, 6);
+
+/////////////////****** Retrieve all the ninjas from the first dojo******/////////////////////////////////////////////
+select *  from ninjas
+where dojo_id= 4 ;
+
+/////////////////****** Retrieve all the ninjas from the last dojo******/////////////////////////////////////////////
+
+select * from ninjas 
+join dojos on 
+dojos.id = ninjas.dojo_id
+where dojos.id=6;
+
+/////////////////******Retrieve the last ninja's dojo******/////////////////////////////////////////////
+
+select dojos.name , ninjas.first_name 
+from ninjas
+join dojos
+on dojos.id = ninjas.dojo_id
+order by ninjas.id desc
+limit 1;
+ ////////////////////////////*******************************************////////////////////////////////////////////////////////////////

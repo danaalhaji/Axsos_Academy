@@ -1,0 +1,78 @@
+Microsoft Windows [Version 10.0.19044.1889]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>pip list
+Package    Version
+---------- -------
+pip        22.2.2
+setuptools 63.2.0
+
+C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>call py3Env\Scripts\activate
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>pip list
+Package    Version
+---------- -------
+pip        22.2.2
+setuptools 63.2.0
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>deactivate
+C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>pip3 list
+Package    Version
+---------- -------
+pip        22.2.2
+setuptools 63.2.0
+
+C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>call py3Env\Scripts\activate
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>pip install Django==2.2.4
+Collecting Django==2.2.4
+  Downloading Django-2.2.4-py3-none-any.whl (7.5 MB)
+     ---------------------------------------- 7.5/7.5 MB 940.3 kB/s eta 0:00:00
+Collecting sqlparse
+  Downloading sqlparse-0.4.2-py3-none-any.whl (42 kB)
+     ---------------------------------------- 42.3/42.3 kB 2.0 MB/s eta 0:00:00
+Collecting pytz
+  Downloading pytz-2022.2.1-py2.py3-none-any.whl (500 kB)
+     ---------------------------------------- 500.6/500.6 kB 2.0 MB/s eta 0:00:00
+Installing collected packages: pytz, sqlparse, Django
+Successfully installed Django-2.2.4 pytz-2022.2.1 sqlparse-0.4.2
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>pip freeze
+Django==2.2.4
+pytz==2022.2.1
+sqlparse==0.4.2
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>cd ~/Desktop
+The system cannot find the path specified.
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>cd \desktop
+The system cannot find the path specified.
+
+(py3Env) C:\Users\User\Desktop\Axsos academy\python_stack\_python\python_fundamentals>cd C:\Users\User\Desktop
+
+(py3Env) C:\Users\User\Desktop>cd ameer
+
+(py3Env) C:\Users\User\Desktop\ameer>cd coding-dojoq
+The system cannot find the path specified.
+
+(py3Env) C:\Users\User\Desktop\ameer>cd ..
+
+(py3Env) C:\Users\User\Desktop>pip freeze >reuirements.txt
+
+(py3Env) C:\Users\User\Desktop>pip freeze > reuirements.txt
+
+(py3Env) C:\Users\User\Desktop>pip uninstall django
+Found existing installation: Django 2.2.4
+Uninstalling Django-2.2.4:
+  Would remove:
+    c:\users\user\desktop\axsos academy\python_stack\_python\python_fundamentals\py3env\lib\site-packages\django-2.2.4.dist-info\*
+    c:\users\user\desktop\axsos academy\python_stack\_python\python_fundamentals\py3env\lib\site-packages\django\*
+    c:\users\user\desktop\axsos academy\python_stack\_python\python_fundamentals\py3env\scripts\django-admin.exe
+    c:\users\user\desktop\axsos academy\python_stack\_python\python_fundamentals\py3env\scripts\django-admin.py
+Proceed (Y/n)? y
+  Successfully uninstalled Django-2.2.4
+
+(py3Env) C:\Users\User\Desktop>pip show django
+WARNING: Package(s) not found: django
+
+(py3Env) C:\Users\User\Desktop>

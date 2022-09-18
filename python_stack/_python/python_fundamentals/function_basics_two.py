@@ -1,0 +1,36 @@
+def countDown(a):
+    for x in range (a, 0, -1):
+        print(x)
+countDown(5)
+
+def printAndReturn(a,b):
+    print(a)
+    return b
+ddd= printAndReturn(8,11)
+print (ddd)
+
+
+def first_plus_length(list):
+    print(len(list))
+    return list[0]+len(list)
+s=first_plus_length([2,4,5,68,68,55,4,1,23])
+
+
+def greater_than_second(listg):
+    greater = []
+    for x in range (0, len(listg)-1, 1):
+        if(listg[x]>listg[x+1]):
+            greater.append(listg[x])
+    print(len(greater))
+listg=[5,2,3,2,1,4]
+greater_than_second(listg)
+
+def length_and_value(a,b):
+    value = []
+    for x in range (0 , a, 1):
+        value.append(b)
+    print(value)
+length_and_value(4,7)
+
+
+

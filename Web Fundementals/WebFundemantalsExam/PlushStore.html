@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="PlushStore.css">
+    <title>Index</title>
+</head>
+<body>
+    <!-- Designing the header and the navigator -->
+    <header>
+        <p>
+            FREE PHONE PHONE GRIB ON SELECT ON PURCHASE
+        </p>
+        <div id="searchNav">
+            <h2>Plush Store</h2>
+            <input id="searchBox" type="text" name="Search" placeholder="Search">
+            <div id="cartAndNumber">
+                <p id="purchaseCount">0</p>
+                <img id="cartDark" src="cart-dark.png" alt="cart-dark">
+            </div>
+        </div>
+    <!-- design the nav bar -->
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#" >Home</a></li>
+                <li><a href="#" >New</a></li>
+                <li><a href="#" id="products">Products</a></li>
+                <li><a href="#">Sales</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a onclick="alertLinks()" href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <h1>
+            Plushy Store
+        </h1>
+    </header>
+    <!-- Design the Content -->
+    <div id="container">
+    <!-- Design the selection taype -->
+        <div class="optionsAndSelections">
+            <p id="optionsDesc">62 products, sorted by <strong id="sortType">Best Selling</strong></p>
+            <div id="optionsDetails">
+                <label for="options">Sort By</label>
+                <select onchange="changeTheOrder(this)" name="options" id="options">
+                    <option value="bestSelling">Best Selling</option>
+                    <option value="price">Price</option>
+                </select>
+            </div>
+        </div>
+    <!-- Design the product pictures and the buttons -->
+        <div class="buy">
+            <div class="buyButtonsAndImages">
+                <img class="buyimg" src="product-image.png" alt="product-image">
+                <br>
+                <p class="productName">Mischief Mouse</p>
+                <br>
+                <button  onclick="increaseCart()" class="buttonBuy" type="button">BUY</button>
+            </div>
+            <div class="buyButtonsAndImages">
+                <img class="buyimg" src="product-image.png" alt="product-image">
+                <br>
+                <p class="productName">Shy Shrew</p>
+                <br>
+                <button  onclick="increaseCart()" class="buttonBuy" type="button">BUY</button>
+            </div>
+            <div class="buyButtonsAndImages">
+                <img class="buyimg" src="product-image.png" alt="product-image">
+                <br>
+                <p class="productName">Hangry Hamster</p>
+                <br>
+                <button onclick="increaseCart()" class="buttonBuy" type="button">BUY</button>
+            </div>
+            <div class="buyButtonsAndImages">
+                <img class="buyimg" src="product-image.png" alt="product-image">
+                <br>
+                <p class="productName">Chilly Chinchilla</p>
+                <br>
+                <button onclick="increaseCart()" class="buttonBuy" type="button">BUY</button>
+            </div>
+        </div>
+    </div>
+    <script src="PlushStore.js"></script>
+</body>
+</html>

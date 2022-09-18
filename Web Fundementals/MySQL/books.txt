@@ -1,0 +1,73 @@
+insert into authers(name)
+values ('Jane Austen');
+insert into authers(name)
+values ('Emily Dickinson,');
+insert into authers(name)
+values (' Fyodor Dostoevsky');
+insert into authers(name)
+values ('William Shakespeare');
+insert into authers(name)
+values ('Lau Tzu');
+insert into books(title)
+values ('Sharp');
+insert into books(title)
+values ('Python');
+insert into books(title)
+values ('PHP');
+insert into books(title)
+values ('Ruby');
+update books 
+set title = ('C#')
+where books.id = 1;
+insert into favorites (auther_id, book_id)
+values (1,1);
+insert into favorites (auther_id, book_id)
+values (1,2);
+insert into favorites (auther_id, book_id)
+values (2,1);
+insert into favorites (auther_id, book_id)
+values (3,1);
+insert into favorites (auther_id, book_id)
+values (3,2);
+insert into favorites (auther_id, book_id)
+values (3,3);
+insert into favorites (auther_id, book_id)
+values (3,4);
+insert into favorites (auther_id, book_id)
+values (4,1);
+insert into favorites (auther_id, book_id)
+values (4,2);
+insert into favorites (auther_id, book_id)
+values (4,3);
+insert into favorites (auther_id, book_id)
+values (4,4);
+update authers 
+set name = "Bill Auston"
+where id = 1;
+
+select * 
+from books 
+join favorites
+join authers
+on authers.id = favorites.auther_id 
+on books.id = favorites.book_id
+where books.id = 3;
+
+delete from favorites
+where book_id=3
+and auther_id=2;
+
+insert into favorites (auther_id, book_id)
+values (5,2);
+
+select * from books
+join favorites on
+ authers.id = favorites.auther_id
+join favorites
+on books.id = favorites.book_id
+where authers.id = 3;
+
+SELECT * FROM authers
+JOIN favorites ON books.id = favorites.book_id
+JOIN authors ON authors.id = favorites.author_id
+WHERE books.id = 5;

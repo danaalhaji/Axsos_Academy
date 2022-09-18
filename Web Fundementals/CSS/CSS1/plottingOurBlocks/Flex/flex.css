@@ -1,0 +1,35 @@
+.parent{
+    width: 800px;
+    height: 400px;
+    background-color: blueviolet;
+    display: flex;
+    justify-content: space-evenly ;
+    flex-direction: column-reverse;
+    align-items: center;
+
+}
+
+.child1{
+    flex: 1;
+    width: 100px;
+    height: 200px;
+    background-color: bisque;
+
+}
+#special{
+    height: 300px;
+}
+.child{
+    width: 100px;
+    height: 200px;
+    background-color: bisque;
+    
+}
+
+.child2{
+    flex: 3;
+    width: 100px;
+    height: 200px;
+    background-color:red; 
+
+}

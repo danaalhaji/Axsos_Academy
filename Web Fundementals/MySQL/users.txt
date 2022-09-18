@@ -1,0 +1,45 @@
+INSERT INTO users (id,first_name, Last_name, email)
+values (1,'dana', 'alhaji', 'dana@gmail.com');
+INSERT INTO users (id,first_name, Last_name, email)
+values (2,'rana', 'zaro', 'rana@gmail.com');
+INSERT INTO users (id,first_name, Last_name, email)
+values (3,'haneen', 'saymeh', 'haneen@gmail.com');
+/////////////////////// select all users
+select * from users;
+************************************************************************************************
+
+/////////////////////// select by email
+select first_name
+from users 
+where email = 'dana@gmail.com'
+************************************************************************************************
+
+/////////////////////// select by id 
+select *
+from users
+order by id desc
+limit 1;
+************************************************************************************************
+
+/////////////////////// updated the first name for id=3 to pancake
+update users
+set first_name = 'Panckake'
+where id = 3;
+************************************************************************************************
+
+/////////////////////// delete the user with id = 2
+delete from users where id =2;
+************************************************************************************************
+
+/////////////////////// select by first name 
+select first_name 
+from users 
+order by first_name;
+************************************************************************************************
+
+///////////////////// BONUS  sorted by their first name in descending order
+select first_name 
+from users 
+order by first_name desc;
+////////////////////////////////////////////////////////////////////////////////////////////////
+************************************************************************************************
