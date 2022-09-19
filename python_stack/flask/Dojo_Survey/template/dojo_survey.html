@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Survey</title>
+</head>
+<style>
+    form{
+        border: 2px solid black;
+        padding: 1%;
+        width: 35%;
+        font-size: 1.2rem;
+        display: flex;
+        flex-direction: column;
+    }
+    #bt{
+    background-color: #76a5af;
+    color: white;
+    width: 30%;
+    padding: 1%;
+    box-shadow: 1px 1px 1px black;
+    margin-top: 15px;
+}
+
+</style>
+<body>
+<form action='/users' method='post'>
+    <p>Your Name : <input type="text" name="nameText"></p>
+    <p>
+    Choose Your City:
+    <select name="City">
+        <option value="nablus">Nablus</option>
+        <option value="ramallah">Ramallah</option>
+        <option value="jenin">Jenin</option>
+        <option value="hebron">Hebron</option>
+        <option value="tulkarm">Tulkarm</option>
+        <option value="qalqilyeh">Qalaelyeh</option>
+    </select>
+    <br>
+    </p>
+    <p>
+    Choose your favorite programming language:
+    <select name="FavoritLanguage">
+        <option value="c++">C++</option>
+        <option value="Java">Java</option>
+        <option value="C#">C#</option>
+        <option value="python">Python</option>
+        <option value="html">HTML</option>
+        <option value="javascribt">JavaScribt</option>
+    </select>
+    </p>
+    <p><strong>Comment</strong>(optional)</p>
+    <input style="width: 60%; height: 100px;" type="text" name="comment">
+    <br>
+    <input type="submit" value="Button" id="bt">
+</form>
+</body>
+</html>
