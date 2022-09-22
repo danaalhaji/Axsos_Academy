@@ -1,0 +1,42 @@
+--->django-admin startproject single_model_orm
+--->cd single_model_orm
+--->python manage.py startapp users_app
+--->"creating the user class in pyhthon"
+--->python manage.py migrate
+--->python manage.py shell
+--->from users_app.models import *
+--->>>> 
+User.objects.create(first_name="Dana", Last_name="Alhaji", email="dana.alhaji95@gmail.com", age="28")
+<User: User object (1)>
+>>> User.objects.create(first_name="rana", Last_name="Alhaji", email="ranaa.alhaji95@gmail.com", age="8")
+<User: User object (2)>
+>>> User.objects.create(first_name="Daniaa", Last_name="Alhaji", email="daniaa.alhaji95@gmail.com", age="30")
+<User: User object (3)>
+--->>>> 
+<QuerySet [<User: User object (1)>, <User: User object (2)>, <User: User object (3)>]>
+--->>>> User.objects.all().values()
+<QuerySet [{'id': 1, 'first_name': 'Dana', 'Last_name': 'Alhaji', 'email': 'dana.alhaji95@gmail.com', 'age': 28, 'created_at': datetime.datetime(2022, 9, 22, 11, 21, 32, 796784, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 22, 11, 21, 32, 796784, tzinfo=datetime.timezone.utc)}, 
+{'id': 2, 'first_name': 'rana', 'Last_name': 'Alhaji', 'email': 'ranaa.alhaji95@gmail.com', 'age': 8, 'created_at': datetime.datetime(2022, 9, 22, 11, 22, 4, 122288, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 22, 11, 22, 4, 122288, tzinfo=datetime.timezone.utc)}, 
+{'id': 3, 'first_name': 'Daniaa', 'Last_name': 'Alhaji', 'email': 'daniaa.alhaji95@gmail.com', 'age': 30, 'created_at': datetime.datetime(2022, 9, 22, 11, 22, 26, 468639, tzinfo=datetime.timezone.utc), 'updated_at': datetime.datetime(2022, 9, 22, 11, 22, 26, 468639, tzinfo=datetime.timezone.utc)}]>
+>>>
+ user3=User.objects.get(id=3)
+ user3.Last_name="panckaes"
+ user3.save
+ User.objects.get(id=3)
+<User: User object (3)>
+ User.objects.get(id=3).__dict__
+{'_state': <django.db.models.base.ModelState object at 0x000001B6E7DFF040>, 'id': 3, 'first_name': 'Daniaa', 
+'Last_name': 'panckaes', 'email': 'daniaa.alhaji95@gmail.com', 'age': 30, 'created_at':
+ datetime.datetime(2022, 9, 22, 11, 22, 26, 468639, tzinfo=datetime.timezone.utc),
+ 'updated_at': datetime.datetime(2022, 9, 22, 12, 7, 19, 737863, tzinfo=datetime.timezone.utc)}
+--->>>>
+ user2=User.objects.get(id=2)
+ user2.delete()
+(1, {'users_app.User': 1})
+--->>>>
+User.objects.all().order_by("first_name")
+<QuerySet [<User: User object (1)>, <User: User object (3)>]>
+--->>>>
+User.objects.all().order_by("-first_name")
+<QuerySet [<User: User object (3)>, <User: User object (1)>]>
+------------------->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<----------------------------------
