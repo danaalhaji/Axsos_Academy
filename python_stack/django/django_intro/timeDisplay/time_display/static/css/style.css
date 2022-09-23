@@ -1,0 +1,21 @@
+.container{
+    width: 60%;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0 auto;
+    padding: 0 auto;
+}
+#discreption{
+    margin: 0 auto;
+    width: 50%;
+    border: 2px solid black;
+    padding: 25px;
+    text-align: center;
+}
+#timeAndDate{
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 80%;
+    border: 2px solid black;
+    font-size: 5rem;
+    text-align: center;
+}
