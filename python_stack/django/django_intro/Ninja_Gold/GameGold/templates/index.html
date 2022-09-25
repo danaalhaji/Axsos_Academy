@@ -62,7 +62,13 @@
         <!-- Activity Tab -->
         <div style="margin-left: 50px;">
             <h2 style="color:rgb(66, 60, 60) ;">Activity:</h2>
-            <label type="text" name="activity-game" style="width: 50%; color:blue;font-size: 1.1rem;">{{request.session.activity}}</label>
+
+            <label type="text" name="activity-game" style="width: 45%; color:blue;font-size: 1.1rem;overflow: scroll;height: 300px;">
+                {%for i in request.session.activity %}
+                {{i}}
+                <br>
+                {% endfor %}
+            </label>
         </div>
     </div>
 </body>
