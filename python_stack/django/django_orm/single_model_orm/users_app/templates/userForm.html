@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Users</title>
+</head>
+<body>
+    <form class="container p-2" class="mx-auto " style="width: 80%;" action='/users' method='post'>
+        <h1 class="mx-auto p-3" style="width: 30%;" >
+            All The Users
+        </h1>
+        <hr>
+        <table class="table table-striped table-sm p-2">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            {%for user in Users%}
+                <tr>
+                    <th>{{user.id}}</th>
+                    <th>{{user.first_name}} {{user.Last_name}}</th>
+                    <th>{{user.email}}</th>
+                    <th>{{user.age}}</th>
+                </tr>
+            {% endfor %}
+        </table>
+        <div style="border-top: 2px solid black;">
+            <h2 class="mx-auto p-3" style="width: 40%; text-align: center;">
+                Add A User
+            </h2>
+                <div class="row p-2 justify-content-between" >
+                {% csrf_token %}
+                    <div class="col-4 md-6"> First Name <input type="text" name="firstname" placeholder="Add First Name"></div>
+                    <div class="col-4 md-6">Last Name <input type="text" name="lastname" placeholder="Add Last Name"></div>
+                </div>
+                <div class="row p-3 justify-content-between" style="margin-left: 20px;">
+                    <div class="col-4 md-6">Email <input type="text" name="Email" placeholder="Add The email Please"></div>
+                    <div class="col-4 md-6">Age  <input type="text" name="age" placeholder="Add The age for the user"></div>
+                </div>
+            {% csrf_token%}
+            <button class="btn btn-dark rounded mx-auto d-block" style="width: 200px;" type="submit" name="submitNew">Submit</button>
+        </div>
+    </form>
+</body>
+</html>
