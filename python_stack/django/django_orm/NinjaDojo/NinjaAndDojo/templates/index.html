@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Dojos And Ninjas</title>
+</head>
+<body>
+    <div class ="container">
+        <div class="row">
+            <form class="col sm-6 d-flex flex-column" action="/addDojo" method="post" >
+                {% csrf_token %}
+                <h2>Add a Dojo</h2>
+                    <label name ="dojoName">Name:</label>
+                    <input type = "text" name="nameInput" placeholder="Type the Dojo Name !">
+                    <label name ="dojoCity">City:</label>
+                    <input type = "text" name="CityInput" placeholder="Type the Dojo City !">
+                    <label name ="dojoState">State:</label>
+                    <input type = "text" name="stateInput" placeholder="Type the Dojo State !">
+                    <button type = "submit" name="submitInput" >Submit</button>
+            </form>
+            <form class="col sm-6 d-flex flex-column" action="/addNinja" method="post" >
+                    {% csrf_token %}
+                    <h2>Add a Ninja</h2>
+                    <label name = "NinjaFirstName">First name:</label>
+                    <input type = "text" name="firstNameInput" placeholder="Type the Dojo Name !">
+                    <label name ="NinjaLastName">Last Name:</label>
+                    <input type = "text" name="lastNameInput" placeholder="Type the Dojo City !">
+                    <label name ="NinjaName">Ninja:</label>
+                    <select name="dojoNinjaa">
+                        {%for dojo in Dojo %}
+                        <option value="{{dojo.id}}" name="dojosNinjas">{{dojo.name}}</option>
+                        {%endfor%}
+                    </select>
+                    <button type = "submit" name="submitInput" >Submit</button>
+            </form>
+        </div>
+            <div style="bottom: 2px solid balck;width:100%;width: 0 auto;">
+                <h2 style="width: 0 auto;">Dojos And Their Ninjas</h2>
+                {% for dojo in Dojo%}
+                <ul><strong>{{dojo.name}}</strong>
+                    {% for ninja in dojo.ninjas.all%}
+                    <li>
+                        {{ninja.first_name}}
+                    </li>
+                    {% endfor %}
+                </ul>
+                {% endfor %}
+            </div>
+    </div>
+</body>
+</html>
