@@ -3,12 +3,12 @@ app = Flask(__name__, template_folder='templates')
 
 @app.route("/")
 def hello():
-    return render_template("index.html",times=1, divColor= 'deeppink')
+    return render_template("index.html",times=1, colorOfDiv= 'deeppink')
 
 @app.route("/play/<number>")
 def div(number):
     repeat = int(number)
-    return render_template("index.html", times = repeat ,divColor= 'deeppink')
+    return render_template("index.html", times = repeat ,colorOfDiv= 'deeppink')
 
 @app.route("/play/<number>/<color>")
 def divColorAndNum(number,color):
