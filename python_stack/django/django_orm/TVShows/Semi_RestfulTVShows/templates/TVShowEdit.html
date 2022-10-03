@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>{{show.title}} Edit</title>
+</head>
+<body>
+    <div class="container-flouid mx-auto bg-dark " style="padding: 50px;">
+        <a href="/show">Go Back</a>
+        {% if messages %}
+        <ul class="messages">    
+            {% for message in messages %}    
+                <li {% if message.tags %} class="alert-danger {{ message.tags }}"{% endif %}>{{ message }}</li>    
+            {% endfor %}
+        </ul>
+        {% endif %}
+        <h1 class="opacity-25 display-1 text-center text-warning bg-dark mx-auto " style=" width:70% ;padding: 10px;">
+            <span style="font-weight: bold;" >Edit </span>{{show.title}} Show :
+        </h1>
+        <form class="border mx-auto bg-dark text-center text-white-50 m-0 fs-4" style="width:70% ;" action="/show/{{show.id}}/edit/save" method="post">
+            {% csrf_token %}
+            <p><label type="text" name ="addTitle" >Add A Title:</label>
+            </p>
+            <p>
+                <input class="form-control bg-dark text-white mx-auto" style="width: 50%;"type="text" name="addTitleText" style="width: 40%;color:black;" value="{{show.title}}">
+            </p>
+            <p>
+                <label  type="text" name ="network">Network:</label>
+            </p>
+            <p>
+                <input class="form-control bg-dark text-white mx-auto" style="width: 50%;" type="text" name="addNetworkText" value="{{show.network}}">
+            </p>
+            <p>
+                <label name="relaesed">Released Date:</label>
+                <input class="form-control bg-dark text-white mx-auto" style="width: 50%;" type="date" name="releaseddate">
+            </p>
+            <p>
+                <label name="DescriptionShow">Description:</label>
+                <textarea class="form-control bg-dark text-white mx-auto" style="width:40%;height: 200px;" name="Description" value="{{show.desc}}" >{{show.desc}}</textarea>
+            </p>
+            <button type="submit" value="submit" name="submitShow" class="btn btn-warning " style="margin-bottom: 20px;">Update</button>
+        </form>
+    </div>
+</body>
+</html>
