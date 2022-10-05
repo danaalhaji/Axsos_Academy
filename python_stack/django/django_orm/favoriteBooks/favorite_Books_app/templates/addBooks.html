@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Add Books</title>
+</head>
+<body>
+    <div class="container d-flex flex-column p-2 ">
+        <div class="row d-flex flex-column" style="width:100% ;">
+            <div class="col sm-6 border border-danger" style="height: 70%;">
+                <h1>
+                    Welcome {{request.session.username}}
+                </h1>
+                <p><a href="/logOut">Logout</a></p>
+                <!-- Adding new book form -->
+                <form action="/book/proccessAddBook" method="post" class="d-flex flex-column justify-content-between">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <div class="col-sm-6  d-flex align-items-center justify-content-center">
+                            <label class="col-sm-2 col-form-label" name="Bookstitle">Title:</label>
+                        <div class="col-sm-10">
+                                <input class="usernametext form-control border border-danger"
+                                type = "text" name="TitleInput" placeholder="Type the Title for the Book!">
+                            </div>
+                        </div>
+                    </div>
+                        <label name ="BooksDesc" class="fst-italic text-danger" style="width: 100%;font-weight: bold;">About The Book:</label>
+                        <br>
+                        <input class="form-control border border-danger" 
+                        id="floatingTextarea2"  placeholder="Leave a comment here" style="height: 100px; width: 50%;" type = "text" name="DescInput">
+                    <button class="btn btn-danger shadow-sm m-5" type="submit" name="submitBook" style="width:30% ;margin:0 auto;">Submit</button>
+            </form>
+            <div>
+                <p>You're Favorite Books</p>
+                <ul>
+                    {% for book in user.liked_books.all %}
+                    <li>{{book.title}}</li>
+                    {%endfor%}
+                </ul>
+            </div>       
+        <div style="margin-top: 50px;border-top:2px solid grey ;">
+            {% for b in books reversed%}
+            <p>
+                <a href="/book/description/{{b.id}}">{{b.title}}</a>
+            </p>
+            <p class="fst-italic" style="font-weight: bold;">
+                uploaded by : 
+            </p>
+            <p>
+                {{b.uploaded_by.first_name}}
+            </p>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
