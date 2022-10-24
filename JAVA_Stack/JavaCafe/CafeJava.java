@@ -21,7 +21,7 @@ public class CafeJava {
     
         // Order completions (add yours below)
         boolean isReadyOrder1 = false;
-        boolean isReadyOrder2 = false;
+        boolean isReadyOrder2 = true;
         boolean isReadyOrder3 = true;
         boolean isReadyOrder4 = false;
         if (isReadyOrder1){
@@ -32,7 +32,7 @@ public class CafeJava {
             System.out.println(customer1 + pendingMessage );
         }
         if (isReadyOrder2){
-        System.out.println(generalGreeting + customer2 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + cafeLatte +"$" );
+        System.out.println(generalGreeting + customer2 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + (2*cafeLatte) +"$" );
         }
         else{
             System.out.println(generalGreeting + customer2); // Displays "Welcome to Cafe Java, Cindhuri"
