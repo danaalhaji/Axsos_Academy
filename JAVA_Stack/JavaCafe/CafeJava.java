@@ -21,18 +21,34 @@ public class CafeJava {
     
         // Order completions (add yours below)
         boolean isReadyOrder1 = false;
-        boolean isReadyOrder2 = true;
+        boolean isReadyOrder2 = false;
         boolean isReadyOrder3 = true;
-        boolean isReadyOrde4r = false;
-
-    
-        // APP INTERACTION SIMULATION (Add your code for the challenges below)
-        // Example:
-        System.out.println(generalGreeting + customer1); // Displays "Welcome to Cafe Java, Cindhuri"
-        System.out.println(customer1 + pendingMessage );
+        boolean isReadyOrder4 = false;
+        if (isReadyOrder1){
+            System.out.println(generalGreeting + customer2 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + cafeLatte +"$" );
+            }
+        else{
+            System.out.println(generalGreeting + customer1); // Displays "Welcome to Cafe Java, Cindhuri"
+            System.out.println(customer1 + pendingMessage );
+        }
+        if (isReadyOrder2){
         System.out.println(generalGreeting + customer2 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + cafeLatte +"$" );
-        System.out.println(generalGreeting + customer3 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + cappuccino +"$" );
-        System.out.println(generalGreeting + customer4 + pendingMessage + "Notice that the price for you order is" + cappuccino + "$"); // Displays "Welcome to Cafe Java, Cindhuri"
-    	// ** Your customer interaction print statements will go here ** //
+        }
+        else{
+            System.out.println(generalGreeting + customer2); // Displays "Welcome to Cafe Java, Cindhuri"
+            System.out.println(customer2 + pendingMessage );
+        }
+        if (isReadyOrder3){
+            System.out.println(generalGreeting + customer3 + readyMessage + "You Ordered coffee sorry for the mistake and," +displayTotalMessage + (cappuccino-dripCoffee) +"$" );
+        }
+        else{
+            System.out.println(generalGreeting + customer3 + pendingMessage + "Notice that the price for you order is" + cappuccino + "$");
+        }
+        if (isReadyOrder4){
+        System.out.println(generalGreeting + customer4 + readyMessage + "You Ordered CafeLatte and," +displayTotalMessage + mochaPrice +"$" );
+        }
+        else{
+        System.out.println(generalGreeting + customer4 + pendingMessage + "Notice that the price for you order is" + cappuccino + "$");
+        }
     }
 }
