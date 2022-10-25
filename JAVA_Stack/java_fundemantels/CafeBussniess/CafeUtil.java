@@ -15,12 +15,16 @@ public class CafeUtil {
         }
     return sum;
     }
-    void displayMenu(ArrayList<String> menuItems){
+    public void displayMenu(ArrayList<String> menuItems){
         for(int i=0 ;i < menuItems.size();i++ ){
             System.out.println( i + " "+ menuItems.get(i));
         }
     }
+    public void addCustomer(ArrayList<String> customer){
+        System.out.println("Please enter your name:");
+        String userName = System.console().readLine();
+        System.out.println("Hello," + userName);
 
-
+    }
 
 }
