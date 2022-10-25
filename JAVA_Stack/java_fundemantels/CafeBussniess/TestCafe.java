@@ -26,9 +26,9 @@ public class TestCafe {
             "latte",
             "mocha"
         );
-        // ArrayList<String> menu = new ArrayList<String>();
-        // menu.addAll(loadMenu);
-        // appTest.displayMenu(menu);
+        ArrayList<String> menu = new ArrayList<String>();
+        menu.addAll(loadMenu);
+        appTest.displayMenu(menu);
     
         System.out.println("\n----- Add Customer Test-----");
         ArrayList<String> customers = new ArrayList<String>();

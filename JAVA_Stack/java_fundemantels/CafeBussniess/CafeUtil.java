@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 public class CafeUtil {
     public int getStreakGoal(){
+        int NumWeeks=10;
         int count = 0;
         count ++;
-        if (count == 10){
+        if (count == NumWeeks){
             count = 0;
         }
         return count;
@@ -24,6 +25,11 @@ public class CafeUtil {
         System.out.println("Please enter your name:");
         String userName = System.console().readLine();
         System.out.println("Hello," + userName);
+        System.out.println("There are " + customer.size() +" people in front of you");
+        customer.add(userName);
+        for(String c : customer){
+            System.out.println(c);
+        }
 
     }
 
