@@ -3,10 +3,10 @@ public class BankAccountTest{
         BankAccount account1 = new BankAccount(250000, 365021);
         System.out.println(account1.getCheckingBalance());
         System.out.println(account1.getSavingBalance());
-        account1.withdrawCheckingBalance(2541);
-        account1.depositeSavingBalance(1150000);
+        account1.withdrawBalance(2541, "checking");
+        account1.depositeBalance(1150000, "saving");
         account1.printSavingsBalance();
-        account1.withdrawCheckingBalance(465021);
+        account1.withdrawBalance(465021, "saving");
         System.out.println(account1.generateAccountID());
     } 
 }

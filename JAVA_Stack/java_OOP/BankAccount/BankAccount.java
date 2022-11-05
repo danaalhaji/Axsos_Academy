@@ -3,13 +3,14 @@ import java.util.Random;
 public class BankAccount{
     private double checkingBalance;
     private double savingsBalance;
+    private double total ;
     private static Random random = new Random();
     private static int numberAccounts = 0;
-    private static ArrayList<BankAccount> allAccounts = new ArrayList<BankAccount>();
     public BankAccount(double savings , double checking ){
         this.generateAccountID();
         this.savingsBalance = savings;
         this.checkingBalance = checking;
+        this.total = this.savingsBalance+this.checkingBalance;
         numberAccounts ++;
     }
     public double getSavingBalance(){
@@ -18,27 +19,31 @@ public class BankAccount{
     public double getCheckingBalance(){
         return this.checkingBalance;
     }
-    public void depositeCheckingBalance(double money){
+    public void depositeBalance(double money , String type){
+        if (type == "checking"){
         this.checkingBalance+=money;
+        }
+        if (type == "saving"){
+            this.savingsBalance+=money;
+            }
     }
-    public void depositeSavingBalance(double money){
-        this.savingsBalance+=money;
-    }
-    public void withdrawCheckingBalance(double money){
-        if (money >= this.checkingBalance){
+    public void withdrawBalance(double money , String type){
+        if (type == "checking"){
+            if (money >= this.checkingBalance){
             System.out.println("Not enough balance!");
         }
-        else{
-            this.checkingBalance -= money;
-            System.out.println(this.checkingBalance);
-        }
+            else{
+                this.checkingBalance -= money;
+                System.out.println(this.checkingBalance);
+            }
     }
-    public void withdrawSavingBalance(double money){
+    if (type == "saving"){
         if (money >= this.savingsBalance){
             System.out.println("Not enough balance!");
         }
         else{
             this.savingsBalance -= money;
+        }
         }
     }
     public void printCheckingBalance(){
@@ -48,9 +53,7 @@ public class BankAccount{
         System.out.println(getSavingBalance());
     }
     public int generateAccountID(){
-
-    Random r = new Random();
-    int accountNumber = 1000000000 + (int)(r.nextDouble() * 999999999);
+    int accountNumber = 1000000000 + (int)(random.nextDouble() * 999999999);
     return accountNumber;
 }
     }
