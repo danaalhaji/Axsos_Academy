@@ -1,5 +1,6 @@
 package com.axsos.travels.controller;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
@@ -70,7 +71,12 @@ public String update(@Valid @ModelAttribute("travel") Travels travel, BindingRes
 			System.out.println(travel.getId());
 			return "redirect:/travels/new";
 		}
-	
 }
-    }
+@DeleteMapping("/travels/{id}/delete")
+public String delete(@PathVariable("id") long Id) {
+	travelsService.deleteTravel(Id);
+	return "redirect:/travels/new";
+}
+}
+
 
