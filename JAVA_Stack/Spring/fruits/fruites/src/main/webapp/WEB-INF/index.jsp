@@ -14,12 +14,13 @@
     <th>Name</th>
     <th>Price</th>
   </tr>
-      <c:forEach var="fruits" items="${fruits}">
-       <tr>
+  <c:forEach var="fruits" items="${fruits}">
+   	<tr>
         <td><c:out value="${fruits.name}"></c:out></td>
         <td><c:out value="${fruits.price}"></c:out></td>
-    </c:forEach>
-  		</tr>
+        </tr>
+ </c:forEach>
+	
 </table>
 </body>
 </html>
