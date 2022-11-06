@@ -15,6 +15,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.axsos.travels.models.Travels;
@@ -58,6 +59,18 @@ public String edit(@PathVariable("travelId") long Id, Model model) {
 	Travels travel = travelsService.findTravel(Id);
 	model.addAttribute("travel", travel);
 	return "travels/edit.jsp";
+}
+@PutMapping("/travels/{id}")
+public String update(@Valid @ModelAttribute("travel") Travels travel, BindingResult result) {
+	if (result.hasErrors()) {
+		return "travels/edit.jsp";
+	}
+		else {
+			travelsService.updateTravel(travel);
+			System.out.println(travel.getId());
+			return "redirect:/travels/new";
+		}
+	
 }
     }
 

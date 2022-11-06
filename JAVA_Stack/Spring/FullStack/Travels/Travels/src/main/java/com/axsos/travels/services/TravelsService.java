@@ -40,7 +40,10 @@ public class TravelsService {
 	        }
 	    }
 	        //Update a travel
-	        
+	    public Travels updateTravel(Travels travel) {
+	    	travel.getId();
+	    	 return travelsRepository.save(travel);
+	    }
 	        public Travels updateTravel(Long id,String expenses, String vendor, String description,double amount) {
 	       	 Travels travel = this.findTravel(id);
 	       	 travel.setExpenses(expenses);
