@@ -50,8 +50,14 @@ public class TravelsController {
         	model.addAttribute(travel);
         	System.out.println(travel.getAmount());
         	
-        	return"travels/index.jsp";
+        	return"/travels/index.jsp";
     	
     }
+@GetMapping("/travels/{travelId}/edit")
+public String edit(@PathVariable("travelId") long Id, Model model) {
+	Travels travel = travelsService.findTravel(Id);
+	model.addAttribute("travel", travel);
+	return "travels/edit.jsp";
+}
     }
 
