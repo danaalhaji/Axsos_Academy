@@ -46,7 +46,7 @@ public class AppController {
         return "redirect:/home";
 	}
 	@GetMapping("/home")
-	public String welcomePage(HttpSession session, Model model, @ModelAttribute("newBook") Book newBook) {
+	public String welcomePage(HttpSession session, Model model, @ModelAttribute("newBook") Book newBook , @ModelAttribute("book") Book book) {
 		User Logged = appServices.findUserById((Long)session.getAttribute("user_id"));
 		model.addAttribute("logged", Logged);
 		List <Book> books = appServices.allBooks();
@@ -54,7 +54,7 @@ public class AppController {
 		return "home.jsp";
 	}
     @GetMapping("/homeu")
-    public String home(Model model, HttpSession session) {
+    public String home(Model model, HttpSession session, @ModelAttribute("book") Book book) {
         if (session.getAttribute("user_id") != null) {
         Long user_id = (Long) session.getAttribute("user_id");
         User thisUser = appServices.findUserById(user_id);
@@ -125,13 +125,14 @@ public class AppController {
         model.addAttribute("book", book);
         return "editBook.jsp";
     }
+    
     @PutMapping("/book/{bookid}/submit")
     public String update(@Valid @ModelAttribute("book") Book book, BindingResult result,
     		@PathVariable("bookid") Long id) {
     	
         if (result.hasErrors()) {
             return "/books/edit.jsp";
-        } 
+        }
         else {
         	book = appServices.findBook(id);
         	System.out.println(book.getId());
@@ -139,12 +140,20 @@ public class AppController {
             return "redirect:/home";
         }
     }
-    @PutMapping("/book/{bookid}/borrow")
-    public String borrowBook(@PathVariable("bookid") Long id, HttpSession session ) {
-    	Book book = appServices.findBook(id);
+
+    @PutMapping("/book/{id}/borrow")
+    public String borrowBook(@PathVariable("id") Long id, HttpSession session,@ModelAttribute("book") Book book ) {
+    	 book = appServices.findBook(id);
     	Long user_id = (Long) session.getAttribute("user_id");
     	User thisUser = appServices.findUserById(user_id);
     	book.setUser_borower(thisUser);
+    	appServices.updateBook(book);
+    	return "redirect:/home";
+    }
+    @DeleteMapping("/book/{id}/unborrow")
+    public String deleteUser(@PathVariable("id") Long id,@ModelAttribute("book") Book book) {
+    	book = appServices.findBook(id);
+    	book.setUser_borower(null);
     	appServices.updateBook(book);
     	return "redirect:/home";
     }

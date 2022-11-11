@@ -19,7 +19,6 @@
 <h1> Hello ${logged.userName} </h1>
 <div class="container-fluid d-flex justify-content-around" style="width: 70%; margin:0 auto;padding:20px;">
 <form:form action="/book/submit" method="post" modelAttribute="newBook">
-		<input type="hidden" name="_method" value="put">
         <div class="form-group">
             <label>Title:</label>
             <form:input path="title" class="form-control" />
