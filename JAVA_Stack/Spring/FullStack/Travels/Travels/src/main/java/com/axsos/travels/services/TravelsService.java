@@ -1,6 +1,7 @@
 package com.axsos.travels.services;
 
 import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.stereotype.Service;
@@ -25,11 +26,11 @@ public class TravelsService {
 	 public List<Travels> allTravels() {
 	        return travelsRepository.findAll();
 	    }
-	    // creates a book
+	    // creates a travel
 	    public Travels createTravel(Travels travel) {
 	        return travelsRepository.save(travel);
 	    }
-	    // retrieves a book
+	    // retrieves a travel
 	    public Travels findTravel(Long id) {
 	        Optional<Travels> optionalTravel = travelsRepository.findById(id);
 	        if(optionalTravel.isPresent()) {

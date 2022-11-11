@@ -9,7 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -31,8 +33,9 @@ public class Lookify {
 	private String singer;
 	
 	@NotNull
-	@Size(min = 5, message="Rating must be in range from 1 to 10.")
-	private Integer  rating;
+	@Min(value=1, message="must be equal or greater than 1")  
+    @Max(value=10, message="must be equal or less than 10")  
+	private int rating;
 	
     @Column(updatable=false)
     @DateTimeFormat(pattern="yyyy-MM-dd")
@@ -61,7 +64,7 @@ public class Lookify {
 	public void setSinger(String singer) {
 		this.singer = singer;
 	}
-	public Integer getRating() {
+	public int getRating() {
 		return rating;
 	}
 	public void setRating(Integer rating) {

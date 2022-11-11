@@ -49,8 +49,10 @@ public class AppController {
 		return "addNinja.jsp";
 	}
 	@PostMapping("/ninja/create")
-	public String ninjaCreate(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result) {
+	public String ninjaCreate(@Valid @ModelAttribute("ninja") Ninja ninja, BindingResult result, Model model) {
 		if (result.hasErrors()) {
+			List<Dojo> dojos =  dojoService.allDojos();
+			model.addAttribute("dojos", dojos);
             return "addNinja.jsp";
         } 
 		else {

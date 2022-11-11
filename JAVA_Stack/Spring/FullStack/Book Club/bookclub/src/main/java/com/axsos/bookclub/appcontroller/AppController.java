@@ -91,7 +91,6 @@ public class AppController {
 		User Logged = appServices.findUserById((Long)session.getAttribute("user_id"));
 		model.addAttribute("logged", Logged);
 		if(result.hasErrors()) {
-			model.addAttribute("newBook", newBook);
 			return "addBook.jsp";
 		}
 		else {
@@ -118,10 +117,7 @@ public class AppController {
     }
     @GetMapping("/book/{bookid}/edit")
     public String edit(@PathVariable("bookid") Long id, Model model,@ModelAttribute("book") Book book) {
-    	System.out.println("hi");
-    	System.out.println(book.getId());
         book = appServices.findBook(id);
-        System.out.println(book.getId());
         model.addAttribute("book", book);
         return "editBook.jsp";
     }
