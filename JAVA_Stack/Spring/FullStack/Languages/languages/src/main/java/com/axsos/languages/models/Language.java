@@ -16,7 +16,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 
 @Entity
 @Table(name="Languages")
-public class Languages {
+public class Language {
 		@Id
 		@GeneratedValue(strategy = GenerationType.IDENTITY)
 		long id;
@@ -37,10 +37,10 @@ public class Languages {
 		 private Date createdAt;
 		 @DateTimeFormat(pattern="yyyy-MM-dd")
 		 private Date updatedAt;
-	public Languages() {
+	public Language() {
 		
 	}
-	public Languages(String name, String creator, double currentVersion) {
+	public Language(String name, String creator, double currentVersion) {
 		this.name = name;
 		this.creator = creator;
 		this.currentVersion = currentVersion;
