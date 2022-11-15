@@ -3,19 +3,7 @@ package com.axsos.projectmanager.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.*;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
-import javax.persistence.Table;
-import javax.persistence.Transient;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
@@ -96,6 +84,9 @@ public class User {
 
 	@OneToMany(mappedBy="users", fetch = FetchType.LAZY)
     private List<Project> projectsOwned;
+	
+    @OneToMany(mappedBy="creator", fetch = FetchType.LAZY)
+    List<Task> tasksCreated;
     
     public User() {}
 	public Long getId() {

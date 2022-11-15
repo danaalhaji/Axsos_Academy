@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 
 import com.axsos.projectmanager.models.LoginUser;
 import com.axsos.projectmanager.models.Project;
@@ -104,9 +105,29 @@ public String submitProject(@Valid @ModelAttribute("newProject") Project newProj
 		return "redirect:/home";
 	}
 }
+//*****************render edit project page***********
+@GetMapping("project/edit/{projectId}")
+public String editPage(@PathVariable("projectId") Long id,HttpSession session, @ModelAttribute("editProject") Project editProject,Model model) {
+	Project editProject1 = appService.findProject(id);
+		model.addAttribute("editProject", editProject1);
+		return "editProject.jsp";
+	
+}
+//***************submit edit *****************
+@PutMapping("/project/submitedit/{id}")
+public String submitEditProject(@Valid @ModelAttribute("editProject") Project editProject,HttpSession session, Model model, BindingResult result ) {
+    if (result.hasErrors()) {
+		return "editProject.jsp";
+    } else {
+    	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
+    	editProject.setProjectAdmin(Logged);
+        appService.updateProject(editProject);
+        return "redirect:/home";
+    }
+}
 //*****************join to project*******************
-@GetMapping("/project/{projectid}/join")
-public String joinTeam(@PathVariable("projectid") Long id,HttpSession session ) {
+@GetMapping("/project/{projectId}/join")
+public String joinTeam(@PathVariable("projectId") Long id,HttpSession session ) {
 	Project project = appService.findProject(id);
 	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
 	// add to team

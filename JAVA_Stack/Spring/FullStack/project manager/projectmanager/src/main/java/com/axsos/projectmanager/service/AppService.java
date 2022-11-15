@@ -4,25 +4,30 @@ import java.util.List;
 import java.util.Optional;
 
 import org.mindrot.jbcrypt.BCrypt;
+import org.springframework.core.task.TaskRejectedException;
 import org.springframework.stereotype.Service;
 import org.springframework.validation.BindingResult;
 
 import com.axsos.projectmanager.models.LoginUser;
 import com.axsos.projectmanager.models.Project;
+import com.axsos.projectmanager.models.Task;
 import com.axsos.projectmanager.models.User;
 import com.axsos.projectmanager.repositories.ProjectRepository;
+import com.axsos.projectmanager.repositories.TaskRepository;
 import com.axsos.projectmanager.repositories.UserRepository;
 
 @Service
 public class AppService {
 	private final ProjectRepository projectRepo;
 	private final UserRepository userRepo;
-	public AppService(ProjectRepository projectRepo, UserRepository userRepo) {
+	private final TaskRepository taskReop;
+	public AppService(ProjectRepository projectRepo, UserRepository userRepo, TaskRepository taskReop) {
 		this.projectRepo = projectRepo;
 		this.userRepo = userRepo;
+		this.taskReop = taskReop;
 	}
 	
-	// create new users
+	// *********************create new users *************************** 
 	public User register(User newUser, BindingResult result) {
         if(userRepo.findByEmail(newUser.getEmail()).isPresent()) {
             result.rejectValue("email", "Unique", "This email is already in use!");
@@ -38,7 +43,7 @@ public class AppService {
             return userRepo.save(newUser);
         }
     }
-    // login
+    //*********************** login *************************** 
     public User login(LoginUser newLogin, BindingResult result) {
         if(result.hasErrors()) {
             return null;
@@ -58,7 +63,7 @@ public class AppService {
             return user;
         }
     }
-    // find users by id
+    // ***************find users by id*************************** 
     public User findUserById(Long id) {
         Optional<User> u = userRepo.findById(id);
 
@@ -68,7 +73,7 @@ public class AppService {
             return null;
         }
     }
-    // find user by email
+    // **************find user by email*************************** 
     public Optional<User> findByEmail(String email) {
     	return userRepo.findByEmail(email);
     }
@@ -76,7 +81,7 @@ public class AppService {
     public List<Project> findAllProject(){
     	return projectRepo.findAll();
     }
-    //find a project
+    //********************find a project*************************** 
     public Project findProject(Long id) {
         Optional<Project> optionalProject = projectRepo.findById(id);
         if(optionalProject.isPresent()) {
@@ -85,39 +90,62 @@ public class AppService {
             return null;
         }
     }
-    // create a project
+    //************* create a project*************************** 
+    
     public Project creatProject(Project project) {
     	
     	return projectRepo.save(project);
     }
-    //update project
+    //********************update project***********
+    
     public Project updateProject(Project project) {
     	return projectRepo.save(project);
     }
-    // find users not in project
+    
+    // ***************find users not in project*************************** 
     public List<Project> notInProject(User user) {
     	return projectRepo.findByUsersNotContains(user);
     }
-    // find projects user not admin 
+    //***************** find projects user not admin *************************** 
+    
     public List<Project> notAdmin(Long id){
     	return projectRepo.findByUsersNotContainsProjectAdmin(id);
     }
-    // add team member
+    // **********************add team member*************************** 
+    
     public Project addToTeam(User user, Project project) {
     	List <User> team = project.getUsers();
     	team.add(user);
     	project.setUsers(team);
     	return projectRepo.save(project);
     }
-    // un-join
+    //********************* un-join*************************** 
+    
     public Project unJoin(User user, Project project) {
     	List <User> team = project.getUsers();
     	team.remove(user);
     	project.setUsers(team);
     	return projectRepo.save(project);	
     }
-    // delete project
+    //*************************** delete project*************************** 
+    
     public void deleteProject(Project project) {
     	 projectRepo.delete(project);
+    }
+    //************ create task*************************** 
+    public Task createTask(Task task) {
+    	return taskReop.save(task);
+    }
+    //********** delete task*************************** 
+    public void deleteTask(Task task) {
+    	 taskReop.delete(task);
+    }
+    //******** retrieve all tasks for a project*************************** 
+    public List<Task> allTask(Project pro){
+    	return taskReop.findAllByProject(pro);
+    }
+    //******** retrieve all tasks for a user*************************** 
+    public List<Task> userTaks(User user){
+    	return taskReop.findAllBycreator(user);
     }
 }

@@ -61,6 +61,9 @@ public class  Project{
     @JoinColumn(name="users_id")
     private User projectAdmin;
     
+    @OneToMany(mappedBy="project", fetch = FetchType.LAZY)
+    List<Task> tasks;
+    
     public Date getDueTo() {
 		return dueTo;
 	}

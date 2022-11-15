@@ -17,6 +17,7 @@
 </head>
 <body>
 <h1 class="text-info" style="text-align: center;"> Project Manager</h1>
+<div class="container-fluid d-flex justify-content-around" style="width: 70%;">
 <form:form action="/register" method="post" modelAttribute="newUser">
         <div class="form-group">
             <label>User Name:</label>
@@ -54,5 +55,6 @@
         </div>
         <input type="submit" value="Login" class="btn btn-success" />
     </form:form>
+    </div>
 </body>
 </html>
