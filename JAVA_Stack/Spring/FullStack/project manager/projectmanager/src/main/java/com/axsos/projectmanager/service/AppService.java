@@ -98,6 +98,10 @@ public class AppService {
     public List<Project> notInProject(User user) {
     	return projectRepo.findByUsersNotContains(user);
     }
+    // find projects user not admin 
+    public List<Project> notAdmin(Long id){
+    	return projectRepo.findByUsersNotContainsProjectAdmin(id);
+    }
     // add team member
     public Project addToTeam(User user, Project project) {
     	List <User> team = project.getUsers();

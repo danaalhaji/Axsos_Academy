@@ -26,6 +26,7 @@
 </head>
 <body>
 <h1 class="display-4 text-info" style="margin:0 auto;">Welcome ${logged.userName}</h1>
+<p><a href="/logout">Log out</a></p>
 
 <div class="container d-flex justify-content-evenly" style="margin:0 auto;padding:40px;">
 <p>><a href="/project/add">
@@ -45,7 +46,7 @@
   </thead>
   <tbody>
   <c:forEach var="project" items="${projects}">
-  <c:if test="${project.projectAdmin.id!=logged.id} ">
+  <c:if test="${project.projectAdmin.id != logged.id }">
     <tr>
       <td><a href="/project/${project.id}">${project.title}</a></td>
       <td>${project.projectAdmin.userName}</td>
@@ -54,7 +55,7 @@
        <a href="/project/${project.id}/join">join</a>
        </td>
        </tr>
-      </c:if>
+       </c:if>
     </c:forEach>
   </tbody>
 </table>
@@ -81,7 +82,7 @@
 		</td>
 		</c:if>
 		<c:if test="${project.projectAdmin.id!= logged.id}">
-		<td> Leave Team</td>
+		<td> <a href="/project/${project.id}/leave">Leave Team</a></td>
 		</c:if>
        </tr>
     </c:forEach>
