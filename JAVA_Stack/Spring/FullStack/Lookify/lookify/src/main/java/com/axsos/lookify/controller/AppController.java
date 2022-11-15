@@ -4,6 +4,7 @@ import java.util.List;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.axsos.lookify.models.Lookify;
 import com.axsos.lookify.repository.LookifyRepository;
@@ -33,7 +35,9 @@ public class AppController {
 	
 	//Render Home page 
 	@GetMapping("/home")
-	public String home() {
+	public String home(Model model) {	
+		List<Lookify> songs = appService.findAll();
+		model.addAttribute("songs", songs);
 		return "home.jsp";
 	}
 	//render add a new song page
@@ -52,10 +56,20 @@ public class AppController {
 			return "redirect:/home";
 		}	
 	}
+	
+	@GetMapping("/search/song")
+	public String seravhBySinger(Model model, @RequestParam("search") String singer, HttpSession session){
+		List<Lookify> songs = appService.findBySinger(singer);
+			System.out.println(songs);
+			model.addAttribute("songss", songs);
+			session.setAttribute("singer", singer);
+			return "searchResult.jsp";
+	}
 	// get top 10 songs by rating
 	@GetMapping("/top10")
 	public String topTen(Model model) {
-		System.out.println(appService.topTen());	
-		return"redirect:/home";
+		List<Lookify> songs=appService.topTen();	
+		model.addAttribute("songss", songs);
+		return "topTen.jsp";
 	}
 }

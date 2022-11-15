@@ -31,7 +31,7 @@ public class AppService {
 		return lookifyRepository.findAll();
 	}
 	// find by singer
-	public Optional<List<Lookify>> findBySinger(String name){
+	public List<Lookify> findBySinger(String name){
 		return lookifyRepository.findBySingerContaining(name);
 	}
 	// find by id

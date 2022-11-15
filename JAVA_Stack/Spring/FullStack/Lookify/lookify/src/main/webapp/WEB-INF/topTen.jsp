@@ -18,16 +18,9 @@
 </head>
 <body>
 <div class="container align-items-center" style="margin: 0 auto; width:70%;">
-<div>
-<div class="d-flex justify-content-around" style="margin-top:50px;">
-<a href="/song/new">Add New</a> <a href="/top10">Top Ten</a> 
-<form class="d-flex justify-content-around" action="/search/song">
-<label for="exampleDataList" class="form-label">Search by your favorite singer</label>
-<input class="form-control" id="exampleDataList" placeholder="Type to search..." name="search">
- <button type="submit" class="btn btn-primary mb-3">Search</button>
-</form>
-</div>
-<table class="table" style="margin-top:50px;">
+<h1 class="display-6 text-danger">Top 10 Songs</h1>
+<div style="margin:0 auto;margin-top:30px;">
+<table class="table">
   <thead class="table-danger">
       <tr>
       <th scope="col">Title</th>
@@ -36,11 +29,11 @@
     </tr>
   </thead>
   <tbody>
-  <c:forEach var="song" items="${songs}">
+  <c:forEach var="s" items="${songss}">
     <tr>
-      <td>${song.title}</td>
-      <td>${song.singer}</td>
-      <td>${song.rating}</td>
+      <td>${s.title}</td>
+      <td>${s.singer}</td>
+      <td>${s.rating}</td>
     </tr>
     </c:forEach>
   </tbody>
