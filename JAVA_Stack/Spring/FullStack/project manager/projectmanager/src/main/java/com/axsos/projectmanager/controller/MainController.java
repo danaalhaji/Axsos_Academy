@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 
 import com.axsos.projectmanager.models.LoginUser;
 import com.axsos.projectmanager.models.Project;
+import com.axsos.projectmanager.models.Task;
 import com.axsos.projectmanager.models.User;
 import com.axsos.projectmanager.service.AppService;
 
@@ -109,6 +110,7 @@ public String submitProject(@Valid @ModelAttribute("newProject") Project newProj
 @GetMapping("project/edit/{projectId}")
 public String editPage(@PathVariable("projectId") Long id,HttpSession session, @ModelAttribute("editProject") Project editProject,Model model) {
 	Project editProject1 = appService.findProject(id);
+	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
 		model.addAttribute("editProject", editProject1);
 		return "editProject.jsp";
 	
@@ -122,6 +124,7 @@ public String submitEditProject(@Valid @ModelAttribute("editProject") Project ed
     	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
     	editProject.setProjectAdmin(Logged);
         appService.updateProject(editProject);
+        model.addAttribute("logged", Logged);
         return "redirect:/home";
     }
 }
@@ -138,16 +141,93 @@ public String joinTeam(@PathVariable("projectId") Long id,HttpSession session ) 
 	return "redirect:/home";
 	
 }
+//********* view project***********
+@GetMapping("/project/{id}")
+public String viewProject(@PathVariable("id") Long id,HttpSession session,Model model) {
+	if(session.getAttribute("user_id") == null) {
+		return "redirect:/logout";
+	}
+	else {
+		User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
+		Project project = appService.findProject(id);
+		model.addAttribute("project",project);
+		model.addAttribute("logged", Logged);
+		return "viewProject.jsp";
+	}
+}
+
+//************* Delete project *************
+
+@GetMapping("/project/{id}/delete")
+public String deleteProject(@PathVariable("id") Long id,HttpSession session) {
+	if(session.getAttribute("user_id") == null) {
+		return "redirect:/logout";
+	}
+	else {
+		Project project = appService.findProject(id);
+		appService.deleteProject(project);
+		return "redirect:/home";
+	}
+}
+
+//********* render a project task by logged user***********
+@GetMapping("/project/{id}/task")
+public String addTaskToProject(@PathVariable("id") Long id,HttpSession session,Model model, @ModelAttribute("newTask") Task newTask) {
+	if(session.getAttribute("user_id") == null) {
+		return "redirect:/logout";
+	}
+	else {
+		
+		Project project = appService.findProject(id);
+		model.addAttribute("project", project);
+		List<Task> taskPro = appService.allTask(project);
+		model.addAttribute("tasks", taskPro);
+		return "task.jsp";
+	}
+}
+//*********** submit task *****************
+
+@PostMapping("/task/{projectId}/submit")
+public String submitTask(@PathVariable("projectId") Long id,HttpSession session,
+		@Valid @ModelAttribute("newTask") Task newTask,BindingResult result, Model model) {
+	if(session.getAttribute("user_id") == null) {
+		return "redirect:/logout";
+	}
+	else {
+		if(result.hasErrors()) {
+			Project project = appService.findProject(id);
+			model.addAttribute("project", project);
+			return "task.jsp";
+		}
+		else {
+			Project project = appService.findProject(id);
+			List<Task> taskPro = appService.allTask(project);
+			User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
+			newTask.setCreator(Logged);
+			newTask.setProject(project);
+			taskPro.add(newTask);
+			appService.createTask(newTask);
+			return "redirect:/home";
+		}
+	}
+
+}
+
 //**********Leave team ****************
 
 @GetMapping("/project/{projectid}/leave")
 public String leaveTeam(@PathVariable("projectid") Long id,HttpSession session ) {
+	if(session.getAttribute("user_id") == null) {
+		return "redirect:/logout";
+	}
+	else {
 	Project project = appService.findProject(id);
 	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
 	List<Project> myProjects= Logged.getProjectsJoined();
 	myProjects.remove(project);
 	appService.updateProject(project);
 	return "redirect:/home";
+	}
 }
 //************Log out ****************
 @GetMapping("/logout")
