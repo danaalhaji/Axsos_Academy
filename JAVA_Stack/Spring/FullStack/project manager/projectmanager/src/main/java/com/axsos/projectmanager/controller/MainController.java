@@ -117,12 +117,16 @@ public String editPage(@PathVariable("projectId") Long id,HttpSession session, @
 }
 //***************submit edit *****************
 @PutMapping("/project/submitedit/{id}")
-public String submitEditProject(@Valid @ModelAttribute("editProject") Project editProject,HttpSession session, Model model, BindingResult result ) {
-    if (result.hasErrors()) {
+public String submitEditProject(@Valid @ModelAttribute("editProject") Project editProject,BindingResult result,HttpSession session, Model model,@PathVariable("id")Long id ) {
+    Project project = appService.findProject(id);
+    List<User>team = project.getUsers();
+	if (result.hasErrors()) {
+    	model.addAttribute("editProject", editProject);
 		return "editProject.jsp";
     } else {
     	User Logged = appService.findUserById((Long)session.getAttribute("user_id"));
     	editProject.setProjectAdmin(Logged);
+    	editProject.setUsers(team);
         appService.updateProject(editProject);
         model.addAttribute("logged", Logged);
         return "redirect:/home";
