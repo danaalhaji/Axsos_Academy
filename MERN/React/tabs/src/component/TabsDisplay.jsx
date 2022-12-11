@@ -15,6 +15,7 @@ const TabsDisplay = (props) => {
             }}
             initial={{ opacity: 0, scale: 0.6 }}
             whileHover={{ scale: 3 }}
+            whileTap={{ scale: 3 }}
             >
         <p style={{color:"red"}}>{props.newChange}</p>
         </motion.p>

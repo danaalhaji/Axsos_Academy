@@ -32,7 +32,14 @@ const TabsForm = (props) => {
     //     75%  {backgroundColor:"green", left:"0px", top:"200px"}
     //     100% {backgroundColor:"red", left:"0px", top:"0px"}
     //   }
-    <div>
+
+    <div style={{margin:"0 auto" ,marginTop:"100px"}}>
+    {/* <motion.buutto
+    className="box"
+    whileHover={{ scale: 1.2 }}
+    whileTap={{ scale: 0.9 }}
+    transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    /> */}
     <ButtonGroup aria-label="Basic example">
       {dict.map((item, index) =>
       <Button variant="warning" key={ index } onClick={(e) => changeToNewTab(e, item.content)}>
