@@ -14,7 +14,7 @@ const TabsDisplay = (props) => {
                 ease: [0.8, 1, 1.5, 1.5],
             }}
             initial={{ opacity: 0, scale: 0.6 }}
-            whileHover={{ scale: 3 }}
+            whileHover={{ scale: 1.2 }}
             whileTap={{ scale: 3 }}
             >
         <p style={{color:"red"}}>{props.newChange}</p>
