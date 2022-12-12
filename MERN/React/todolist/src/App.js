@@ -5,9 +5,9 @@ import EditList from './component/EditList';
 import { useState } from 'react';
 
 function App() {
-  const [toDo, setToDo] = useState({})
+  const [toDo, setToDo] = useState([])
   const toDoList =(list)=>{
-    setToDo([...toDo,{"task":list, "state":"not"} ])
+    setToDo([...toDo, list ])
   }
   return (
     <div className="App">

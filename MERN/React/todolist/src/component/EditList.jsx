@@ -7,10 +7,11 @@ import Form from 'react-bootstrap/Form';
 const EditList = (props) => {
     const [isChecked, setIsChecked] = useState();
     const [styleText , setStyleText] = useState("none")
-    const [tasks, setTasks] = useState({})
+    const [tasks, setTasks] = useState([])
+    const [array , setArray] = useState([])
 
     useEffect(()=>{
-        setTasks(props.showList)},
+        setTasks(props.showList.filter( item => !array.includes(item)))},
         [props.showList]
     )
     const handleOnChange = (e) => {
@@ -23,12 +24,14 @@ const EditList = (props) => {
       }
     }
     const deleteItem =(t)=>{
-        console.log(t)
-        var array = [...tasks]
-        array.splice(t,1);
+        var item = tasks[t];
+        console.log(item)
+        setArray([...array,item])
         console.log(array)
-        setTasks(array);
-        console.log(tasks)
+        var array1 = [...tasks]
+        array1.splice(t,1);
+        setTasks(array1);
+        // console.log(tasks)
     }
   return (
     <div>
@@ -36,7 +39,7 @@ const EditList = (props) => {
             return (<div style={{width:"20%" , margin:"0 auto", display:"flex"}}key={idx} className="mb-3">
             <Form.Check onChange={(e) => handleOnChange(e)}
               type="checkBox"
-            /><span style= {{textDecoration: styleText}} >{item.task}</span> <Button variant="danger" 
+            /><span style= {{textDecoration: styleText}} >{item}</span> <Button variant="danger" 
             type="submit" onClick={(e)=>deleteItem(idx)}> Delete</Button>
             </div>)
         })
