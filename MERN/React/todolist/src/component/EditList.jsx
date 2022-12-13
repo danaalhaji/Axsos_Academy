@@ -24,12 +24,15 @@ const EditList = (props) => {
       }
     }
     const deleteItem =(t)=>{
+      // set the item to be deleted
         var item = tasks[t];
         console.log(item)
+        // add it to filter  array
         setArray([...array,item])
         console.log(array)
         var array1 = [...tasks]
         array1.splice(t,1);
+        // set new tasks with out deleted item
         setTasks(array1);
         // console.log(tasks)
     }

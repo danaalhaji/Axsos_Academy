@@ -13,7 +13,6 @@ const TodoList = (props) => {
         props.setList(newTask);
         setNewTask("")
     }
-
   return (
     <div style={{width:"50%" , margin:"0 auto"}}>
       <Form onSubmit={(e) => addTaskToList(e)}>
@@ -24,10 +23,11 @@ const TodoList = (props) => {
         <Form.Text className="text-success">
           Make Sure To Finish And Delete, Stay Motivated!
         </Form.Text>
-        <Button variant="warning" type="submit" >
+        <Button variant="warning" type="submit"  >
         Submit
       </Button>
       </Form>
+
     </div>
   )
 }
