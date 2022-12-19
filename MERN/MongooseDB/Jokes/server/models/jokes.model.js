@@ -6,5 +6,5 @@ const JokesSchema = new mongoose.Schema(
         punchLine :String
     });
 
-const Jokes = mongoose.model("Jokes" , JokesSchema);
-module.exports = Jokes;
+const Joke = mongoose.model("Joke" , JokesSchema);
+module.exports = Joke;
