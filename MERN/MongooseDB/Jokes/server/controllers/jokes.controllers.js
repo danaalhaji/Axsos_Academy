@@ -29,3 +29,9 @@ module.exports.createNewJoke = (req, res) => {
       .then(result => res.json({ result: result }))
       .catch(err => res.json({ message: "Something went wrong", error: err }));
   };
+
+  module.exports.findRandomJoke = (req, res) => {
+    Jokes.aggregate([{ $sample: { size: 1 } }])
+      .then(oneRandomJoke => res.json({ Joke: oneRandomJoke }))
+      .catch(err => res.json({ message: "Something went wrong", error: err }));
+  };
