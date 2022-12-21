@@ -25,13 +25,14 @@ const AllProducts = (props) => {
 
     const removeFromDom = proId => {
         setProducts(products.filter(product => product._id != proId));
+        console.log(proId)
     }
 
     return (
         <div>
             <ProductForm onSubmitProp={createProduct} initialState />
             <hr/>
-            {loaded && <ProductList products={products} removeFromDom={removeFromDom} />}
+            {loaded && <ProductList products={products} removeFromDom={removeFromDom}  />}
         </div>
     )
 }

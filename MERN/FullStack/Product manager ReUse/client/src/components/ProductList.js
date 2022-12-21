@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import { Link } from '@reach/router';
 import Button from '@mui/material/Button';
+import DeleteButton from './DeleteButton';
 
 const ProductList =(props) =>{
-    const deletePoduct = (proId) => {
-        axios.delete(`http://localhost:8000/api/products/${proId}`)
-            .then(res => {
-                props.removeFromDom(proId)
-            })
-            .catch(err => console.error(err));
-    }
+    const [product, setProduct] = useState([]);
+   
+    useEffect(() => {
+        axios.get('http://localhost:8000/api/products')
+            .then(res => setProduct(res.data));
+    }, [])
+
+    // const removeFromDom = proID => {
+    // setProduct(product.filter(pro => pro._id != proID))
+    // }
 
     return (
         <div style={{margin:"0 auto" , width:"40%"}}>
@@ -27,13 +31,12 @@ const ProductList =(props) =>{
                             Price:</span>{pro.price}$ </li>
                         <li><span style={{fontWeight:"bold"}}>
                             Description:</span> {pro.description} </li>
-                        <Button variant="outlined" color="error"
-                        onClick={(e)=>{deletePoduct(pro._id)}}
-                        >Delete Item</Button>
+                        <DeleteButton proId={pro._id} successCallback={()=> props.removeFromDom(pro._id)}> </DeleteButton>
                         <span>    </span>
                     <Link to={"/update/" + pro._id}>
                     <Button variant="outlined" color="success">
                         Update Item</Button>
+
                     </Link>
                     </ul>
                 </li>
