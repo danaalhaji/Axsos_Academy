@@ -3,7 +3,7 @@ import axios from 'axios';
 import { Link } from '@reach/router';
 import Button from '@mui/material/Button';
 import DeleteButton from './DeleteButton';
-
+import { navigate } from '@reach/router' 
 const ProductList =(props) =>{
     const [product, setProduct] = useState([]);
    

@@ -9,6 +9,8 @@ import AttachMoneyTwoToneIcon from '@mui/icons-material/AttachMoneyTwoTone';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
+import { navigate } from '@reach/router' 
+
 
 export default (props) =>{
     const { initialState, onSubmitProp } = props;
@@ -20,6 +22,7 @@ export default (props) =>{
         console.log("hiiiiiiiiii");
              //make a post request to create a new product
             props.onSubmitProp({title, price, description})
+            navigate('/')
     };
 
     return(
