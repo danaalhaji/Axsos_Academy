@@ -18,9 +18,9 @@ module.exports.createNewProduct = (req, res) => {
         title,
         price,
         description
-    })
-        .then(product =>res.json(product))
-        .catch(err =>res.json(err));
+    })
+    .then(product =>res.json(product))
+    .catch(err =>res.json(err));
     }
 
     module.exports.updateExistingProduct =(req , res) =>{
@@ -28,3 +28,10 @@ module.exports.createNewProduct = (req, res) => {
         .then(updatedProduct => res.json({ product: updatedProduct }))
         .catch(err => res.json({ message: "Something went wrong", error: err }));
     };
+
+module.exports.deleteProduct =(req, res) =>{
+    Products.deleteOne({ _id: req.params.id })
+        .then(deleteConfirmation => res.json(deleteConfirmation))
+        .catch(err => res.json(err))
+}
+

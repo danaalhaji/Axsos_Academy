@@ -9,11 +9,11 @@ import AttachMoneyTwoToneIcon from '@mui/icons-material/AttachMoneyTwoTone';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
 import { Box } from '@mui/system';
+
 export default () =>{
     const [title, setTitle] = useState("");
     const[price, setPrice] = useState(0);
     const[description, setDesc] = useState("");
-
 
     const handleSubmit = e=>{
         e.preventDefault();
@@ -27,8 +27,10 @@ export default () =>{
                 .then(res=> console.log(res))
                 .catch(err=>console.log(err.response.data));
     };
+
     return(
         <div style={{margin:"0 auto"}}>
+        <form onSubmit={handleSubmit}>
         <FormControl >
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <InventorySharpIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
@@ -43,19 +45,18 @@ export default () =>{
         {console.log(price)}
         </Box>
 
-
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <DescriptionIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
         <TextField id="input-with-sx" label="Description" variant="standard" 
         rows={4}
         onChange = {(e) => setDesc(e.target.value)}/>
         </Box>
-        <Button color="primary" aria-label="Add Product" type="submit" onClick={handleSubmit}>
+        <Button color="primary" aria-label="Add Product" type="submit" >
         <AddShoppingCartIcon />
         Add Product
         </Button>
-
         </FormControl>
+        </form>
         </div>
     )
 }
