@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 
 const ProductList =(props) =>{
     const deletePoduct = (proId) => {
-        
         axios.delete(`http://localhost:8000/api/products/${proId}`)
             .then(res => {
                 props.removeFromDom(proId)
@@ -31,6 +30,11 @@ const ProductList =(props) =>{
                         <Button variant="outlined" color="error"
                         onClick={(e)=>{deletePoduct(pro._id)}}
                         >Delete Item</Button>
+                        <span>    </span>
+                    <Link to={"/update/" + pro._id}>
+                    <Button variant="outlined" color="success">
+                        Update Item</Button>
+                    </Link>
                     </ul>
                 </li>
                 </ul>
