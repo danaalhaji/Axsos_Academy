@@ -17,6 +17,7 @@ const Main = (props) => {
         .catch(err => console.error(err.response.data));
     },[]);
 
+
     const createAuther = author =>{
         axios.post("http://localhost:8000/api/auther", author)
             .then(res => { setAuthor([...author,res.data]);

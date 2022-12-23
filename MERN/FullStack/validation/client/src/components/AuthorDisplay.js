@@ -15,6 +15,7 @@ import { grey } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
 import Zoom from '@mui/material/Zoom';
 import { Link } from '@reach/router';
+import Delete from './Delete';
 
 const useStyles = makeStyles({
     table: {
@@ -30,6 +31,11 @@ const AuthorDisplay = (props) => {
         axios.get('http://localhost:8000/api/auther')
         .then(res => setAuthors(res.data));
     },[])
+
+    const removeFromDom = proId => {
+      setAuthors(authors.filter(authors => authors._id != proId));
+      console.log(proId);
+  }
     const classes = useStyles();
   return (
 
@@ -97,7 +103,7 @@ const AuthorDisplay = (props) => {
               style={{textDecoration:"none", color:grey[500]}}>{auth.name}</Link>
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right"> 
-              Delete |
+              <Delete authId={auth._id} successCallback={()=> removeFromDom(auth._id)}></Delete> |
               <Link style={{color : grey[500]}} to ={"/update/"+auth._id}>Edit</Link>
               </TableCell>
             </TableRow>
