@@ -22,6 +22,7 @@ const useStyles = makeStyles({
     },
   });
 
+
 const AuthorDisplay = (props) => {
     const [authors, setAuthors] = useState([])
 
@@ -84,7 +85,7 @@ const AuthorDisplay = (props) => {
       <Table className={classes.table} aria-label="simple table">  
         <TableHead>
           <TableRow>
-            <TableCell style={{ backgroundColor: pink[500] , color:grey[50]}} >Name</TableCell>
+            <TableCell style={{ backgroundColor: pink[500] , color:grey[50]}}>Name</TableCell>
             <TableCell style={{ backgroundColor: pink[500], color:grey[50] }} align="right">Action</TableCell>
           </TableRow>
         </TableHead>
@@ -92,7 +93,8 @@ const AuthorDisplay = (props) => {
           {authors.map((auth , idx) => (
             <TableRow  key={idx}>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
-              {auth.name}
+              <Link to ={"/"+auth._id}
+              style={{textDecoration:"none", color:grey[500]}}>{auth.name}</Link>
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right"> 
               Delete |
@@ -105,6 +107,7 @@ const AuthorDisplay = (props) => {
     </TableContainer>
     </Zoom>
     </div>
+
   )
 }
 

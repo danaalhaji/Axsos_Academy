@@ -6,9 +6,11 @@ import InventorySharpIcon from '@mui/icons-material/InventorySharp';
 import TextField from '@mui/material/TextField';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Button from '@mui/material/Button';
+import HomeIcon from '@mui/icons-material/Home';
 import { Box } from '@mui/system';
-import { navigate } from '@reach/router' 
 
+import { navigate } from '@reach/router' 
+import { Link } from '@reach/router';
 
 export default (props) =>{
     const { initialName, onSubmitProp } = props;
@@ -19,11 +21,13 @@ export default (props) =>{
              //make a post request to create a new product
             props.onSubmitProp({name})
             
+            
     };
 
     return(
-        <div style={{margin:"0 auto"}}>
-
+        <div style={{margin:"0 auto", marginTop:"10%"}}>
+        <Link style={{margin:"0 auto", marginBottom:"10%"}} to={"/"}><HomeIcon></HomeIcon>
+            Home</Link>
         <form onSubmit={handleSubmit}>
         {props.lerror && props.errors.map((err, index) => <p key={index}>{err}</p>)}
         <FormControl >
@@ -34,7 +38,11 @@ export default (props) =>{
         onChange = {(e) => setName(e.target.value)}/>
         </Box>
         <Button color="primary" aria-label="Add Product" type="submit">
-        Add Author
+        Submit
+        </Button>
+
+        <Button color="primary" aria-label="Add Product" type="submit" onClick={()=>navigate('/')}>
+        Cancel
         </Button>
         </FormControl>
         </form>
