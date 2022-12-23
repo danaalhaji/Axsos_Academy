@@ -5,5 +5,6 @@ module.exports = function(app){
         app.get('/api/auther/:id', AutherController.findOneAuther);
         app.post('/api/auther', AutherController.createNewProduct);
         app.delete('/api/auther/:id', AutherController.deleteAuther);
+        app.put('/api/auther/:id', AutherController.updateOneAuther);
     }
     

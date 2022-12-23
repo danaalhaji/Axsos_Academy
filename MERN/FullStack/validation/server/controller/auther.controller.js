@@ -13,7 +13,7 @@ module.exports.findOneAuther = (req,res)=>{
     };
 
 module.exports.createNewProduct = (req, res) => {
-        const { name } = req.body;
+    const { name } = req.body;
 Auther.create({
     name,
 })
@@ -21,8 +21,14 @@ Auther.create({
 .catch(err =>res.status(400).json(err));
 }
 
-module.exports.deleteAuther =(req, res) =>{
+module.exports.deleteAuther = (req, res) =>{
     Auther.deleteOne({ _id: req.params.id })
         .then(deleteConfirmation => res.json(deleteConfirmation))
         .catch(err => res.json(err))
 }
+
+module.exports.updateOneAuther = (req, res) =>{
+    Auther.findOneAndUpdate({_id: req.params.id}, req.body, {new:true, runValidators: true })
+    .then(auther =>res.json(auther))
+    .catch(err =>res.status(400).json(err));
+    }

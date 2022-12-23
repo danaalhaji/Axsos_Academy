@@ -23,12 +23,13 @@ export default (props) =>{
 
     return(
         <div style={{margin:"0 auto"}}>
+
         <form onSubmit={handleSubmit}>
         {props.lerror && props.errors.map((err, index) => <p key={index}>{err}</p>)}
         <FormControl >
         <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
         <InventorySharpIcon sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
-        <TextField  id="input-with-sx" label="Title" variant="standard" 
+        <TextField  id="input-with-sx" label="Name" variant="standard" 
         value={name}
         onChange = {(e) => setName(e.target.value)}/>
         </Box>
