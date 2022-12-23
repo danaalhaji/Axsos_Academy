@@ -20,8 +20,6 @@ export default (props) =>{
         console.log("hiiiiiiiiii");
              //make a post request to create a new product
             props.onSubmitProp({name})
-            
-            
     };
 
     return(

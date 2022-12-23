@@ -13,14 +13,13 @@ export default props => {
             .catch(err => console.error(err));
     }
 
-
   return (
     <div>
-        <a href="#"
+        <p
         variant="outlined"
         style={{color : grey[500]}}
         onClick={deletePoduct}
-        >Delete</a>
+        >Delete</p>
     </div>
   )
 }

@@ -60,7 +60,12 @@ const AuthorDisplay = (props) => {
 >
   Favorite Author
 </AnimatedText>
-  <AnimatedText
+        <p>
+            <Link style={{color : pink[900]}} to={"/new"}>
+                Add new Author
+            </Link>
+        </p>
+        <AnimatedText
   type="chars" // animate words or chars
   animation={{
     x: '200px',
@@ -80,12 +85,6 @@ const AuthorDisplay = (props) => {
 >
   We Have Quotes By:
 </AnimatedText>
-
-        <p>
-            <Link style={{color : pink[900]}} to={"/new"}>
-                Add new Author
-            </Link>
-        </p>
         <Zoom in="true" >
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">  
