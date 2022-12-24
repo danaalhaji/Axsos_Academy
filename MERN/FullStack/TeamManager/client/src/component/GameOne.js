@@ -22,15 +22,19 @@ const useStyles = makeStyles({
   });
 const GameOne = (props) => {
     const[player, setPlayers] = useState(props.Players)
+    const[color1, setColor1] = useState("white")
+    const[color2, setColor2] = useState("white")
+    const[color0, setColor0] = useState("white")
   // delete a player
   const removeFromDom = proId => {
     setPlayers(player.filter(authors => authors._id != proId));
     console.log(proId);
 }
 const classes = useStyles();
+
   return (
     <div>
-            <TableContainer component={Paper}>
+    <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">  
         <TableHead>
           <TableRow>
@@ -48,10 +52,11 @@ const classes = useStyles();
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.position}
               </TableCell>
-              <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right"> 
-              {/* <Delete authId={auth._id} successCallback={()=> removeFromDom(auth._id)}></Delete> | */}
-              {/* <Link style={{color : grey[500]}} to ={"/update/"+auth._id}>Delete</Link> */}
-              <button type="button" style={{color:auth.g1Color}}></button>
+              <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
+              <button type="button" value= "2"style={{backgroundColor: auth.g1Status == 2? "green" :""}}>Playing</button>
+              <button type="button" value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}>Not Playing</button>
+              <button type="button" value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}>Undecided</button>
+                
               </TableCell>
             </TableRow>
           ))}

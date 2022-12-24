@@ -1,8 +1,9 @@
 const mongoose = require("mongoose");
 
 var enu ={
-    values:["Goalkeeper", "Defenders", "Midfielders" , "Forwards"],
-    message:' the postion should be one of the following : "Goalkeeper", "Defenders", "Midfielders" , "Forwards"'
+    values:["Goalkeeper", "Defenders", "Midfielders" , "Forwards" ,""],
+    message:' the postion should be one of the following : "Goalkeeper", "Defenders", "Midfielders" , "Forwards"',
+    required : false
 
 }
 
@@ -17,17 +18,12 @@ const playerSchema = new mongoose.Schema({
     },
     position:{
         type:String,
-        enum:enu
+        enum:enu,
     },
     g1Status:{
         type:Number,
         enum:[0,1,2],
         default:0
-    },
-    g1Color:{
-        type:String,
-        enum:["white", "red" ,"green"],
-        default:"white"
     }
     ,
     g2Status:{
@@ -35,21 +31,13 @@ const playerSchema = new mongoose.Schema({
         enum:[0,1,2],
         default: 0
     },
-    g2Color:{
-        type:String,
-        enum:["white", "red" ,"green"],
-        default:"white"
-    },
+
     g3Status:{
         type:Number,
         enum:[0,1,2],
         default:0
     },
-    g3Color:{
-        type:String,
-        enum:["white", "red" ,"green"],
-        default:"white"
-    },
+    
     }
 
 , { timestamps: true })

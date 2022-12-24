@@ -7,7 +7,7 @@ import DisplayG1 from './veiws/DisplayG1';
 function App() {
   return (
     <div className="App">
-<Create></Create>
+{/* <Create></Create> */}
 <DisplayG1></DisplayG1>
     </div>
   );
