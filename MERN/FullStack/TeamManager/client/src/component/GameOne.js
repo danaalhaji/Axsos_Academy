@@ -22,15 +22,19 @@ const useStyles = makeStyles({
   });
 const GameOne = (props) => {
     const[player, setPlayers] = useState(props.Players)
-    const[color1, setColor1] = useState("white")
-    const[color2, setColor2] = useState("white")
-    const[color0, setColor0] = useState("white")
+    const[g1Status, setStatus] = useState(null)
   // delete a player
   const removeFromDom = proId => {
     setPlayers(player.filter(authors => authors._id != proId));
     console.log(proId);
 }
 const classes = useStyles();
+const statuss = (id, v)=>{
+    console.log(v)
+    setStatus(v);
+    props.update(id, g1Status)
+
+}
 
   return (
     <div>
@@ -53,9 +57,12 @@ const classes = useStyles();
                 {auth.position}
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
-              <button type="button" value= "2"style={{backgroundColor: auth.g1Status == 2? "green" :""}}>Playing</button>
-              <button type="button" value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}>Not Playing</button>
-              <button type="button" value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}>Undecided</button>
+              <button type="submit" value= "2" style={{backgroundColor: auth.g1Status == 2? "green" :""}} 
+              onClick={e=> statuss(auth._id,2)}>Playing</button>
+              <button type="submit" value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}
+              onClick={e=> statuss(auth._id,1)}> Not Playing </button>
+              <button type="submit" value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}
+              onClick={e=> statuss(auth._id,0)}>Undecided</button>
                 
               </TableCell>
             </TableRow>

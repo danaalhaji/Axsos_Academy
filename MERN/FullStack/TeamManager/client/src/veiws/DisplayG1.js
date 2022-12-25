@@ -15,9 +15,16 @@ const DisplayG1 = () => {
         .catch(err => console.error(err.response.data));
         console.log("hi")
     },[]);
+    const update =(id,g1Status)=>{
+        axios.put('http://localhost:8000/api/player/' + id, {
+            g1Status,
+        })
+            .then(res => console.log(res))
+            .catch(err => console.error(err));
+    }
   return (
     <div>{loaded &&
-      <GameOne Players={players}></GameOne>
+      <GameOne Players={players} update={update}></GameOne>
     }
     </div>
   )
