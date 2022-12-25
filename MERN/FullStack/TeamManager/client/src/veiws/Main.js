@@ -1,3 +1,4 @@
+import { Link } from '@reach/router';
 import axios from 'axios';
 import React, { useEffect, useState, useRef } from 'react'
 
@@ -23,6 +24,10 @@ const Main = (props) => {
 
   return (
     <div>
+        
+    <Link to="/player/list"> Players List </Link>
+    <Link to ="/player/create"> Add Player</Link>
+    
       {
         loaded && <ShowList  Players={players}></ShowList>
       }

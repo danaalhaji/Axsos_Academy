@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GameOne from '../component/GameOne';
+import GameTwo from '../component/GameTwo';
 import { Link } from '@reach/router';
 
-const DisplayG1 = () => {
+const DisplayG2 = () => {
     const [players, setPlayers] = useState(null);
     const [loaded, setLoaded] = useState(false);
     const [player , setPlayer] = useState()
@@ -19,9 +19,9 @@ const DisplayG1 = () => {
     },[]);
 
 
-    const update =(id, g1Status)=>{
+    const update =(id, g2Status)=>{
         axios.put('http://localhost:8000/api/player/' + id, {
-            g1Status,
+            g2Status,
         })
             .then(res => {setPlayers([...players,res.data])})
             .catch(err => console.error(err));
@@ -30,12 +30,12 @@ const DisplayG1 = () => {
     <div>
         <Link to="/player/status">Game 1</Link>
         <Link to="/player/game2">Game 2</Link>
-        <h1>Game1</h1>
+        <h1>Game2</h1>
         {loaded &&
-      <GameOne Players={players} update={update}></GameOne>
+      <GameTwo Players={players} update={update}></GameTwo>
     }
     </div>
   )
 }
 
-export default DisplayG1
+export default DisplayG2

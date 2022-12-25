@@ -20,7 +20,7 @@ const useStyles = makeStyles({
       minWidth: 300,
     },
   });
-const GameOne = (props) => {
+const GameTwo = (props) => {
     const[player, setPlayers] = useState(props.Players)
     const[g1Status, setStatus] = useState(null)
   // delete a player
@@ -57,11 +57,11 @@ const statuss = (id, v)=>{
                 {auth.position}
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
-              <button type="submit" value= "2" style={{backgroundColor: auth.g1Status == 2? "green" :""}} 
+              <button type="submit" value= "2" style={{backgroundColor: auth.g2Status == 2? "green" :""}} 
               onClick={e=> statuss(auth._id,2)}>Playing</button>
-              <button type="submit" value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}
+              <button type="submit" value="1" style={{backgroundColor: auth.g2Status == 1? "red" :""}}
               onClick={e=> statuss(auth._id,1)}> Not Playing </button>
-              <button type="submit" value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}
+              <button type="submit" value="0" style={{backgroundColor: auth.g2Status == 0? "yellow" :""}}
               onClick={e=> statuss(auth._id,0)}>Undecided</button>
                 
               </TableCell>
@@ -74,4 +74,4 @@ const statuss = (id, v)=>{
   )
 }
 
-export default GameOne
+export default GameTwo

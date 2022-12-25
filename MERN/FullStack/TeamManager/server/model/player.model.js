@@ -37,7 +37,6 @@ const playerSchema = new mongoose.Schema({
         enum:[0,1,2],
         default:0
     },
-    
     }
 
 , { timestamps: true })

@@ -32,7 +32,7 @@ const ShowList = (props) => {
 }
 const classes = useStyles();
   return (
-    <div>
+    <div style={{width:"60%", margin:"0 auto"}}>
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">  
         <TableHead>
