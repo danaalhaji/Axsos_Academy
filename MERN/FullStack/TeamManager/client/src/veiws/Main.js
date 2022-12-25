@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react'
 
 // import { navigate } from '@reach/router' 
 import ShowList from '../component/ShowList';
+import Header from './Header';
 
 
 
@@ -24,7 +25,7 @@ const Main = (props) => {
 
   return (
     <div>
-        
+        <Header></Header>
     <Link to="/player/list"> Players List </Link>
     <Link to ="/player/create"> Add Player</Link>
     

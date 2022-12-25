@@ -13,6 +13,7 @@ import { pink } from '@mui/material/colors';
 import { grey } from '@mui/material/colors';
 import { red } from '@mui/material/colors';
 import Zoom from '@mui/material/Zoom';
+import DeleteButton from './DeleteButton';
 // import { Link } from '@reach/router';
 
 
@@ -27,9 +28,11 @@ const ShowList = (props) => {
     const[player, setPlayers] = useState(props.Players)
   // delete a player
   const removeFromDom = proId => {
+    
     setPlayers(player.filter(authors => authors._id != proId));
     console.log(proId);
 }
+
 const classes = useStyles();
   return (
     <div style={{width:"60%", margin:"0 auto"}}>
@@ -46,15 +49,13 @@ const classes = useStyles();
           {player.map((auth , idx) => (
             <TableRow  key={idx}>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
-    {auth.name}
+                {auth.name}
               </TableCell>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.position}
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right"> 
-              {/* <Delete authId={auth._id} successCallback={()=> removeFromDom(auth._id)}></Delete> | */}
-              {/* <Link style={{color : grey[500]}} to ={"/update/"+auth._id}>Delete</Link> */}
-              Delete
+              <DeleteButton playerID={auth._id} name ={auth.name}successCallback={()=>removeFromDom(auth._id)}></DeleteButton>
               </TableCell>
             </TableRow>
           ))}

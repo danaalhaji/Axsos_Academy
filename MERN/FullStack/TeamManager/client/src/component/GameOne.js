@@ -20,6 +20,9 @@ const useStyles = makeStyles({
       minWidth: 300,
     },
   });
+
+
+  
 const GameOne = (props) => {
     const[player, setPlayers] = useState(props.Players)
     const[g1Status, setStatus] = useState(null)
@@ -51,7 +54,7 @@ const statuss = (id, v)=>{
           {player.map((auth , idx) => (
             <TableRow  key={idx}>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
-    {auth.name}
+                {auth.name}
               </TableCell>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.position}

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import GameTwo from '../component/GameTwo';
 import { Link } from '@reach/router';
+import Header from './Header';
 
 const DisplayG2 = () => {
     const [players, setPlayers] = useState(null);
@@ -28,6 +29,7 @@ const DisplayG2 = () => {
     }
   return (
     <div>
+        <Header></Header>
         <Link to="/player/status">Game 1</Link>
         <Link to="/player/game2">Game 2</Link>
         <h1>Game2</h1>

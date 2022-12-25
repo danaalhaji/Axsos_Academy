@@ -3,9 +3,9 @@ import React from 'react'
 
 const Header = () => {
   return (
-    <div style={{display:"flex"}}>
-      <Link to="/player/list">Manage player List</Link>
-      <Link to="/player/status">Manage player Status</Link>
+    <div style={{display:"flex", margin:"0 auto"}}>
+      <h1><Link to="/player/list">Manage player List</Link>
+         <Link to="/player/status">Manage player Status</Link></h1>
     </div>
   )
 }

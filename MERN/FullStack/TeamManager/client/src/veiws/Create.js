@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import PlayerForm from '../component/PlayerForm'
 import { Link } from '@reach/router'
+import Header from './Header'
 
 const Create = () => {
     const initialState  ={
@@ -40,7 +41,7 @@ const Create = () => {
         }      
   return (
     <div>
-
+    <Header></Header>
     <Link to="/player/list"> Players List </Link>
     <Link to ="/player/create"> Add Player</Link>
     <PlayerForm onSubmitProps={createAuther} errors={errors} initialState ={initialState}></PlayerForm>
