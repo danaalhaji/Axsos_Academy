@@ -24,8 +24,13 @@ const DisplayG1 = () => {
         axios.put('http://localhost:8000/api/player/' + id, {
             g1Status,
         })
-            .then(res => {setPlayers([...players,res.data])})
-            .catch(err => console.error(err));
+            .then( axios.get('http://localhost:8000/api/player')
+                    .then(res=>{
+                        setPlayers(res.data);
+                        setLoaded(true);
+                    }))
+            .catch(err => console.error(err.response.data));
+        console.log(players)
     }
   return (
     <div>

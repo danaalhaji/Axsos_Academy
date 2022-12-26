@@ -11,8 +11,7 @@ import Header from './Header';
 const Main = (props) => {
     const [players, setPlayers] = useState(null);
     const [loaded, setLoaded] = useState(false);
-    const counter = useRef(0)
-    console.log(counter.current++)
+
     useEffect(() =>{
         axios.get('http://localhost:8000/api/player')
         .then(res=>{
@@ -25,7 +24,7 @@ const Main = (props) => {
 
   return (
     <div>
-        <Header></Header>
+    <Header></Header>
     <Link to="/player/list"> Players List </Link>
     <Link to ="/player/create"> Add Player</Link>
     

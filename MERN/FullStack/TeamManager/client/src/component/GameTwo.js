@@ -23,16 +23,15 @@ const useStyles = makeStyles({
 const GameTwo = (props) => {
     const[player, setPlayers] = useState(props.Players)
     const[g1Status, setStatus] = useState(null)
-  // delete a player
-  const removeFromDom = proId => {
-    setPlayers(player.filter(authors => authors._id != proId));
-    console.log(proId);
-}
+  // table style
 const classes = useStyles();
+
+// update player status
 const statuss = (id, v)=>{
     console.log(v)
     setStatus(v);
     props.update(id, g1Status)
+    setPlayers(props.Players);
 
 }
 

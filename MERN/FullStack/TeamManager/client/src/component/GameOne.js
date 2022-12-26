@@ -26,17 +26,17 @@ const useStyles = makeStyles({
 const GameOne = (props) => {
     const[player, setPlayers] = useState(props.Players)
     const[g1Status, setStatus] = useState(null)
-  // delete a player
-  const removeFromDom = proId => {
-    setPlayers(player.filter(authors => authors._id != proId));
-    console.log(proId);
-}
+    const [loaded, setLoaded] = useState(false);
+
+// styles for table
 const classes = useStyles();
+
+// update the status for the player
 const statuss = (id, v)=>{
     console.log(v)
     setStatus(v);
     props.update(id, g1Status)
-
+    setPlayers(props.Players);
 }
 
   return (
@@ -55,6 +55,7 @@ const statuss = (id, v)=>{
             <TableRow  key={idx}>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.name}
+                {console.log(auth.g1Status)}
               </TableCell>
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.position}

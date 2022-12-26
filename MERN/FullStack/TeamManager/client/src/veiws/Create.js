@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import PlayerForm from '../component/PlayerForm'
-import { Link } from '@reach/router'
+import { Link, useNavigate } from '@reach/router'
 import Header from './Header'
+import { navigate } from '@reach/router'
 
 const Create = () => {
     const initialState  ={
@@ -14,6 +15,7 @@ const Create = () => {
     const [loaded, setLoaded] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loadedError, setLoadedEr] = useState(false) 
+    const navigate = useNavigate();
 
     useEffect(() =>{
         axios.get('http://localhost:8000/api/player')
@@ -27,7 +29,7 @@ const Create = () => {
     const createAuther = author =>{
         axios.post("http://localhost:8000/api/player", author)
             .then(res => { setPlayers([...author,res.data]);
-              })
+                navigate("/"); })
             .catch(err=>{
                 const errorResponse = err.response.data.errors; // Get the errors from err.response.data
                 const errorArr = []; // Define a temp error array to push the messages in
