@@ -1,7 +1,7 @@
 const Player = require("../model/player.model");
 
 module.exports.findAllPlayers = (req, res)=>{
-    Player.find({})
+    Player.find().sort({name:1})
     .then(pro => res.json(pro))
     .catch(err => res.json(err))
     };

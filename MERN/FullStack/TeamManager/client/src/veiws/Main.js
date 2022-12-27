@@ -4,6 +4,7 @@ import React, { useEffect, useState, useRef } from 'react'
 
 // import { navigate } from '@reach/router' 
 import ShowList from '../component/ShowList';
+import DisplayG1 from './DisplayG1';
 import Header from './Header';
 
 

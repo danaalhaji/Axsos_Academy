@@ -25,8 +25,6 @@ const useStyles = makeStyles({
   
 const GameOne = (props) => {
     const[player, setPlayers] = useState(props.Players)
-    const[g1Status, setStatus] = useState(null)
-    const [loaded, setLoaded] = useState(false);
 
 // styles for table
 const classes = useStyles();
@@ -34,8 +32,7 @@ const classes = useStyles();
 // update the status for the player
 const statuss = (id, v)=>{
     console.log(v)
-    setStatus(v);
-    props.update(id, g1Status)
+    props.update(id, v);
     setPlayers(props.Players);
 }
 
@@ -61,13 +58,12 @@ const statuss = (id, v)=>{
                 {auth.position}
               </TableCell>
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
-              <button type="submit" value= "2" style={{backgroundColor: auth.g1Status == 2? "green" :""}} 
+              <button  value= "2" style={{backgroundColor: auth.g1Status == 2? "green" :""}} 
               onClick={e=> statuss(auth._id,2)}>Playing</button>
-              <button type="submit" value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}
+              <button value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}
               onClick={e=> statuss(auth._id,1)}> Not Playing </button>
-              <button type="submit" value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}
+              <button value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}
               onClick={e=> statuss(auth._id,0)}>Undecided</button>
-                
               </TableCell>
             </TableRow>
           ))}

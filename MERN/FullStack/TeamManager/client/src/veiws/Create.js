@@ -8,14 +8,15 @@ import { navigate } from '@reach/router'
 const Create = () => {
     const initialState  ={
         name :"",
-        color: "white"
+        color: "yellow"
     }
+
+    // let navigate=useNavigate();
 
     const[players, setPlayers] = useState(null)
     const [loaded, setLoaded] = useState(false);
     const [errors, setErrors] = useState([]);
     const [loadedError, setLoadedEr] = useState(false) 
-    const navigate = useNavigate();
 
     useEffect(() =>{
         axios.get('http://localhost:8000/api/player')
@@ -26,10 +27,11 @@ const Create = () => {
         .catch(err => console.error(err.response.data));
     },[]);
 
+
     const createAuther = author =>{
         axios.post("http://localhost:8000/api/player", author)
-            .then(res => { setPlayers([...author,res.data]);
-                navigate("/"); })
+            // .then(res => { setPlayers([...author,res.data], ) })
+            .then(()=>navigate('/player/list'))
             .catch(err=>{
                 const errorResponse = err.response.data.errors; // Get the errors from err.response.data
                 const errorArr = []; // Define a temp error array to push the messages in
