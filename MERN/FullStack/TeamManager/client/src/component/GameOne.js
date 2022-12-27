@@ -33,7 +33,7 @@ const classes = useStyles();
 const statuss = (id, v)=>{
     console.log(v)
     props.update(id, v);
-    setPlayers(props.Players);
+    // setPlayers(props.Players);
 }
 
   return (

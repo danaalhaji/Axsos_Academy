@@ -28,9 +28,14 @@ const DisplayG1 = () => {
         })
         .then(res=>{
         const objIndex = players.findIndex((obj => obj._id == id));
-        const students1 = [ ...players.slice(0, objIndex),
-            { ...players[objIndex], "g1Status": g1Status } ,...players.slice(objIndex+1)]
-                    setPlayers(students1); });
+        const player1 = players[objIndex];
+        player1.g1Status = g1Status;
+        const students1 = [ ...players.slice(0, objIndex),player1,...players.slice(objIndex+1)];
+        setPlayers(students1)});
+        // setPlayers(players.map((player,i)=>{
+        //   if(player._id===id)player.g1Status=g1Status;
+        //   return player;
+        // }))})
 
             // .then(  res=>  setX(!x))
 
