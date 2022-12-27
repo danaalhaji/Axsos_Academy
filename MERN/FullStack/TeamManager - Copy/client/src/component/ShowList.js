@@ -34,8 +34,17 @@ const ShowList = (props) => {
 }
 
 const classes = useStyles();
+const statuss = (id, v)=>{
+  console.log(v)
+  props.update(id, v);
+  // setPlayers(props.Players);
+}
   return (
     <div style={{width:"60%", margin:"0 auto"}}>
+            { props.state ==1?   <h1>Game 1</h1>:
+      props.state ==2?
+      <h1>Game 2</h1>:
+      <h1>Palyers List</h1>}
       <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="simple table">  
         <TableHead>
@@ -54,9 +63,32 @@ const classes = useStyles();
               <TableCell style={{ backgroundColor: pink[50], color:grey[500] }}component="th" scope="row">
                 {auth.position}
               </TableCell>
+              {props.state == 1 ?
+              <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
+                
+              <button  value= "2" style={{backgroundColor: auth.g1Status == 2? "green" :""}} 
+              onClick={e=> statuss(auth._id,2)}>Playing</button>
+              <button value="1" style={{backgroundColor: auth.g1Status == 1? "red" :""}}
+              onClick={e=> statuss(auth._id,1)}> Not Playing </button>
+              <button value="0" style={{backgroundColor: auth.g1Status == 0? "yellow" :""}}
+              onClick={e=> statuss(auth._id,0)}>Undecided</button>
+              </TableCell>
+              :
+              props.state == 2 ?
+              <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right">
+                
+              <button  value= "2" style={{backgroundColor: auth.g2Status == 2? "green" :""}} 
+              onClick={e=> statuss(auth._id,2)}>Playing</button>
+              <button value="1" style={{backgroundColor: auth.g2Status == 1? "red" :""}}
+              onClick={e=> statuss(auth._id,1)}> Not Playing </button>
+              <button value="0" style={{backgroundColor: auth.g2Status == 0? "yellow" :""}}
+              onClick={e=> statuss(auth._id,0)}>Undecided</button>
+              </TableCell>
+              :
               <TableCell style={{ backgroundColor: red[50], color:grey[500] }}align="right"> 
               <DeleteButton playerID={auth._id} name ={auth.name}successCallback={()=>removeFromDom(auth._id)}></DeleteButton>
               </TableCell>
+              }
             </TableRow>
           ))}
         </TableBody>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import GameOne from '../component/GameOne';
 import { Link } from '@reach/router';
 import Header from './Header';
+import ShowList from '../component/ShowList';
 
 
 const DisplayG1 = (props) => {
@@ -60,9 +60,12 @@ const DisplayG1 = (props) => {
         <Link to="/player/game/1">Game 1</Link>
         <Link to="/player/game/2">Game 2</Link>
         
-        { loaded &&
+        {/* { loaded &&
       <GameOne Players={players} update={update} state={props.num}></GameOne>
-      // <GameTwo Players={players} update={update} ></GameTwo>
+    } */}
+    {
+      loaded && 
+      <ShowList Players={players} update={update} state={props.num}></ShowList>
     }
     </div>
   )
